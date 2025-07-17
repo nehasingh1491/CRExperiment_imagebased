@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task 1 - MAGIX Experiment</title>
+  <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
+  <script>
+
+    	function logAnswer(answer) {
+        // Store response in hidden input so it's submitted with the form
+        document.getElementById('user_response').value = answer;
+        logData("task1 response " + answer);
+      }
+
+
+  </script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: auto;
+      padding: 20px;
+      line-height: 1.6;
+    }
+    .question {
+      margin-top: 20px;
+    }
+    .response-button {
+      padding: 10px 20px;
+      margin: 10px 10px 0 0;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .response-button:hover {
+      background-color: #0056b3;
+    }
+    .next-button-container {
+      text-align: right;
+      margin-top: 30px;
+    }
+    .next-button {
+      padding: 10px 24px;
+      font-size: 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .next-button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+<form action="experiment2" method="post" id="my-form">
+    <h2>Task 1</h2>
+
+    <p><strong>Scenario:</strong></p>
+    <p>You are using a smart travel assistant that recommends vacation destinations based on your preferences.</p>
+
+    <p><strong>Your preference:</strong> A relaxing beach vacation with minimal travel time.</p>
+
+    <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
+
+    <p><strong>AI Explanation:</strong></p>
+    <p id="ai_explanation">{{ai_explanation}}</p>
+
+
+    <!-- Hidden field to store the user's response -->
+    <input type="hidden" name="user_response" id="user_response" value="">
+
+    <div class="question">
+      <p><strong>Question:</strong> Based on the AI output and explanation, do you think this is an appropriate recommendation?</p>
+
+      <button type="button" class="response-button" onclick="logAnswer('Yes')" >Yes, it's appropriate</button>
+      <button type="button" class="response-button" onclick="logAnswer('No')">No, it's not appropriate</button>
+    </div>
+
+
+    <div class="next-button-container">
+      <button type="submit" class="next-button">Next ►</button>
+    </div>
+</form>
+
+</body>
+</html>

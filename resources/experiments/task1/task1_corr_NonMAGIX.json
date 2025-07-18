@@ -1,5 +1,5 @@
 {
-    "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
+    "ai_answer": "A mushroom which was magically turned into a mosquito.",
+    "ai_explanation": "The system generated this answer by retrieving two prior, analogous Q&A instances from its case library and then mapped the current question onto those cases:\nCase #1 (\u201cWhat form did Brom\u2019s bride take after Serpentus\u2019s spell?\u201d)\nIn that earlier interaction, the AI confronted the identical excerpt and, focusing on the line \u201cbecame a mushroom at Brom\u2019s feet,\u201d answered \u201ca mushroom.\u201d\nCase #2 (\u201cDid Brom end up marrying the mosquito or something else?\u201d)\nHere too, the AI parsed the final stanza under the willow branch and, noting the star-speckled cap description, selected \u201cthe mushroom.\u201d\nBy comparing your question\u2019s phrasing and context embeddings with those two stored examples the AI re-used that solution pattern and returned \u201ca mushroom\u201d as its output."
   }
   

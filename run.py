@@ -382,8 +382,8 @@ def task1():
                 resp = make_response(render_template('experiment1.html',
                                     ai_answer=data['ai_answer'],
                                     ai_explanation=ai_explanation))
-
-            return resp
+                resp.set_cookie('experiment-experimentCRtype', cr_file)
+                return resp
     else:
         return redirect(url_for('already_done'))
     
@@ -426,8 +426,8 @@ def task2():
                 resp = make_response(render_template('experiment2.html',
                                     ai_answer=data['ai_answer'],
                                     ai_explanation=ai_explanation))
-
-            return resp
+                resp.set_cookie('experiment-experimentCRtype', cr_file)
+                return resp
     else:
         return redirect(url_for('already_done'))
 
@@ -469,8 +469,8 @@ def task3():
                 resp = make_response(render_template('experiment3.html',
                                     ai_answer=data['ai_answer'],
                                     ai_explanation=ai_explanation))
-
-            return resp
+                resp.set_cookie('experiment-experimentCRtype', cr_file)
+                return resp
     else:
         return redirect(url_for('already_done'))
     
@@ -488,7 +488,7 @@ def task4():
     log_data(str(user_id), "start", "cr-experiment")
 
     # Choosing experiment
-    cr_file = choose_experiment_task3()
+    cr_file = choose_experiment_task4()
     log_data(str(user_id), "task4", cr_file)
 
     exp_is_done = request.cookies.get('experiment-is_done', 'not_done')
@@ -512,8 +512,8 @@ def task4():
                 resp = make_response(render_template('experiment4.html',
                                     ai_answer=data['ai_answer'],
                                     ai_explanation=ai_explanation))
-
-            return resp
+                resp.set_cookie('experiment-experimentCRtype', cr_file)
+                return resp
     else:
         return redirect(url_for('already_done'))
 
@@ -598,17 +598,56 @@ def conclusion():
     log_data(str(user_id), "end", "experiment_concluded")
 
     exp_type = request.cookies.get('experiment-experimentCRtype')
-    exp_is_test = request.cookies.get('experiment-experimentCRistest')
 
     # update the correspondent counter
-    if exp_type == 'files_experiment1':
-        experiments_concluded['HumanCorr-control'] += 1
-    elif exp_type == 'files_experiment2':
-        experiments_concluded['HumanIncorr-test'] += 1
-    elif exp_type == 'files_experiment3':
-        experiments_concluded['AICorr-test'] += 1
-    elif exp_type == 'files_experiment2':
-        experiments_concluded['AIInCorr-test'] += 1
+    if exp_type == 'task1_corr_MAGIX.json':
+        experiment1_concluded['t1CorrMAGIX'] += 1
+    elif exp_type == 'task1_corr_NonMAGIX.json':
+        experiment1_concluded['t1CorrNonMAGIX'] += 1
+    elif exp_type == 'task1_corr_NoXAI.json':
+        experiment1_concluded['t1CorrNoXAI'] += 1
+    elif exp_type == 'task1_incorr_MAGIX.json':
+        experiment1_concluded['t1InCorrMAGIX'] += 1
+    elif exp_type == 'task1_incorr_NonMAGIX.json':
+        experiment1_concluded['t1IncorrNonMAGIX'] += 1
+    elif exp_type == 'task1_incorr_NoXAI.json':
+        experiment1_concluded['t1IncorrNoXAI'] += 1
+    elif exp_type == 'task2_corr_MAGIX.json':
+        experiment1_concluded['t2CorrMAGIX'] += 1
+    elif exp_type == 'task2_corr_NonMAGIX.json':
+        experiment1_concluded['t2CorrNonMAGIX'] += 1
+    elif exp_type == 'task2_corr_NoXAI.json':
+        experiment1_concluded['t2CorrNoXAI'] += 1
+    elif exp_type == 'task2_incorr_MAGIX.json':
+        experiment1_concluded['t2InCorrMAGIX'] += 1
+    elif exp_type == 'task2_incorr_NonMAGIX.json':
+        experiment1_concluded['t2IncorrNonMAGIX'] += 1
+    elif exp_type == 'task2_incorr_NoXAI.json':
+        experiment1_concluded['t2IncorrNoXAI'] += 1
+    elif exp_type == 'task3_corr_MAGIX.json':
+        experiment1_concluded['t3CorrMAGIX'] += 1
+    elif exp_type == 'task3_corr_NonMAGIX.json':
+        experiment1_concluded['t3CorrNonMAGIX'] += 1
+    elif exp_type == 'task3_corr_NoXAI.json':
+        experiment1_concluded['t3CorrNoXAI'] += 1
+    elif exp_type == 'task3_incorr_MAGIX.json':
+        experiment1_concluded['t3InCorrMAGIX'] += 1
+    elif exp_type == 'task3_incorr_NonMAGIX.json':
+        experiment1_concluded['t3IncorrNonMAGIX'] += 1
+    elif exp_type == 'task3_incorr_NoXAI.json':
+        experiment1_concluded['t3IncorrNoXAI'] += 1
+    elif exp_type == 'task4_corr_MAGIX.json':
+        experiment1_concluded['t4CorrMAGIX'] += 1
+    elif exp_type == 'task4_corr_NonMAGIX.json':
+        experiment1_concluded['t4CorrNonMAGIX'] += 1
+    elif exp_type == 'task4_corr_NoXAI.json':
+        experiment1_concluded['t4CorrNoXAI'] += 1
+    elif exp_type == 'task4_incorr_MAGIX.json':
+        experiment1_concluded['t4InCorrMAGIX'] += 1
+    elif exp_type == 'task4_incorr_NonMAGIX.json':
+        experiment1_concluded['t4IncorrNonMAGIX'] += 1
+    elif exp_type == 'task4_incorr_NoXAI.json':
+        experiment1_concluded['t4IncorrNoXAI'] += 1
 
     #conclusion_text = read_files("conclusion.txt")
     return render_template("conclusion.html", title='conclusion')

@@ -10,75 +10,161 @@
         // Store response in hidden input so it's submitted with the form
         document.getElementById('user_response').value = answer;
         logData("task1 response " + answer);
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll('.response-button');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
+        if (selectedBtn) {
+          selectedBtn.classList.add('selected');
+        }
       }
 
 
   </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    .question {
-      margin-top: 20px;
-    }
-    .response-button {
-      padding: 10px 20px;
-      margin: 10px 10px 0 0;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .response-button:hover {
-      background-color: #0056b3;
-    }
-    .next-button-container {
-      text-align: right;
-      margin-top: 30px;
-    }
-    .next-button {
-      padding: 10px 24px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .next-button:hover {
-      background-color: #218838;
-    }
-  </style>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        margin: 40px auto;
+        padding: 0 20px;
+        max-width: 1200px;
+        line-height: 1.6;
+        color: #222;
+        font-size: 18px;
+      }
+  
+      h2, h3 {
+        color: #111;
+      }
+  
+      .box {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 20px 25px;
+        margin-top: 20px;
+      }
+  
+      .question {
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
+  
+      #ai_explanation{
+        color: #0056b3;
+        font-style: italic;
+      }
+  
+      .response-button {
+        padding: 10px 20px;
+        margin: 15px 10px 0 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+  
+      .response-button:hover {
+        background-color: #0056b3;
+      }
+
+      .response-button.selected {
+        border: 2px solid #333;
+        background-color: #004c9e;
+      }
+
+  
+      .next-button-container {
+        text-align: right;
+        margin-top: 40px;
+      }
+  
+      .next-button {
+        padding: 10px 24px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+  
+      .next-button:hover {
+        background-color: #218838;
+      }
+  
+      .novel-section {
+        white-space: pre-wrap;
+        padding-top: 30px;
+        font-family: Georgia, serif;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+  
+      input[type="hidden"] {
+        display: none;
+      }
+    </style>
 </head>
 <body>
 <form action="experiment2" method="post" id="my-form">
     <h2>Task 1</h2>
 
-    <p><strong>Scenario:</strong></p>
-    <p>You are using a smart travel assistant that recommends vacation destinations based on your preferences.</p>
+    <div class="box">
+      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to decide whether the AI’s answer is correct.</p>
+    </div>
+  
+    <div class="box">
+      <!-- <p class="question">Question:</p>
+      <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
+      <p><strong>Question:</strong> What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p>
 
-    <p><strong>Your preference:</strong> A relaxing beach vacation with minimal travel time.</p>
+      <p><strong>AI Output:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
-    <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
-
-    <p><strong>AI Explanation:</strong></p>
-    <p id="ai_explanation">{{ai_explanation}}</p>
+      {% if ai_explanation %}
+      <p><strong>AI Explanation:</strong>
+      <em id="ai_explanation">{{ai_explanation}}</em></p>
+      {% endif %}
 
 
     <!-- Hidden field to store the user's response -->
-    <input type="hidden" name="user_response" id="user_response" value="">
+      <input type="hidden" name="user_response" id="user_response" value="">
 
-    <div class="question">
-      <p><strong>Question:</strong> Based on the AI output and explanation, do you think this is an appropriate recommendation?</p>
+      <div class="button-group">
+        <p><strong>Your Judgement:</strong> Based on the AI output and explanation, do you think this is a correct answer?</p>
 
-      <button type="button" class="response-button" onclick="logAnswer('Yes')" >Yes, it's appropriate</button>
-      <button type="button" class="response-button" onclick="logAnswer('No')">No, it's not appropriate</button>
+        <button type="button" id="btn-yes" class="response-button" onclick="logAnswer('Yes')" >Yes, it is correct</button>
+        <button type="button" id="btn-no" class="response-button" onclick="logAnswer('No')">No, it is incorrect</button>
+      </div>
+    </div>
+
+      <div class="box">
+      <h3>Novel Excerpts:</h3>
+      <ol style="line-height: 1.8; font-family: Georgia, serif; font-size: 18px;">
+        <li>In the mossy heart of the swamp lived a toad named Brom. Each morning, he perched on his favorite lily pad, gazing at the dappling sunbeams and dreaming of adventures beyond the reeds. Though other creatures stared, Brom’s thoughts drifted to a delicate visitor who flitted through the dawn mist.</li>
+      
+        <li>That visitor was no ordinary mosquito. She hovered with a gentle hum, her wings casting tiny rainbows. Brom’s heart fluttered as he watched her dance among the cattails. He croaked shy greetings, startling the insects but enchanting her.</li>
+      
+        <li>Days passed in a rhythm of stolen glances and soft buzzes. Brom brought her dewdrops balanced on grass blades, and she sipped them with dainty pleasure. Dragonflies whispered that Brom was in love—an absurd notion, they scoffed, for no toad could wed a mosquito.</li>
+      
+        <li>One moonlit night, Brom summoned his courage and invited her to the oldest willow branch. Wings trembling, she agreed. Under silver light and among fireflies, he vowed to always love and protect her. She answered with a rippling hum—a promise in song.</li>
+      
+        <li>Preparations began at once. Frogs rehearsed choruses; water beetles polished the pond’s mirror; snails offered their slow wisdom on marriage. The swamp buzzed in anticipation—never before had a toad wed a mosquito.</li>
+      
+        <li>As the day dawned, Brom slipped away at first light to gather special gifts: a crown of waterlily petals and a necklace strung from spider-silk pearls. He arranged them on a smooth stone altar beneath the willow, his webbed fingers trembling with hope.</li>
+      
+        <li>Meanwhile, the swamp stirred in celebration. Crickets tuned their legs for a lullaby; fireflies rehearsed flickering patterns in the reeds; even the wind hummed through the cattails as if carrying a wedding march. Excitement rippled through every leaf and ripple of water.</li>
+      
+        <li>On the wedding day, Brom wore a simple reed wreath; the mosquito a veil of glistening dew. As they reached the altar, a sinister hiss cut through the air. Serpentus, the evil snake wizard, emerged and spoke ancient words. In a swirl of emerald mist, the mosquito froze—and became a mushroom at Brom’s feet, halting the ceremony.</li>
+      
+        <li>When the mist lifted, a humble mushroom with a star-speckled cap trembled on the willow branch. Guests gasped; Brom’s heart sank. He realized his bride had never been an insect but a magical fungi.</li>
+      
+        <li>For a long silence, Brom stared at the tiny mushroom. Gently, he cradled it and understood: love is more than shape or song—it’s the spark that drew him to her true self. Despite dark magic and unexpected change, he spoke his final vow: to marry the mushroom he thought was a mosquito, for his heart knew her always. And so they lived on the forest floor—one toad, one mushroom—bound by the purest magic of love.</li>
+      </ol>      
+      
     </div>
 
 

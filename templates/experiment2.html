@@ -69,9 +69,11 @@
   <p><strong>AI Explanation:</strong></p>
   <p id="ai_explanation">{{ai_explanation}}</p>
 
-    <div class="question">
-        <p><strong>Question:</strong> Based on the AI output and explanation, do you think this is an appropriate recommendation?</p>
+  <!-- Hidden field to store the user's response -->
+  <input type="hidden" name="user_response" id="user_response" value="">
 
+  <div class="question">
+    <p><strong>Question:</strong> Based on the AI output and explanation, do you think this is an appropriate recommendation?</p>
         <button type="button" class="response-button" onclick="logAnswer('Yes')">Yes, it's appropriate</button>
         <button type="button" class="response-button" onclick="logAnswer('No')">No, it's not appropriate</button>
     </div>

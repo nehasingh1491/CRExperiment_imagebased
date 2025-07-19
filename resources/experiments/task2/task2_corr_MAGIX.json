@@ -1,5 +1,5 @@
 {
     "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
+    "ai_explanation": "<ol><li>The system generated this answer by retrieving two prior, analogous Q&amp;A instances from its case library and then mapped the current question onto those cases:</li><li><strong>Case #1:</strong> “Where can I go for a relaxing seaside break within 5 hours travel from Vienna? I live in Austria.”<br>In that earlier interaction, the AI recognized the user’s proximity constraint and beach preference, and recommended “Nice, France.”</li><li><strong>Case #2:</strong> “I’m based in Zurich and want a laid-back beach vacation without a long flight. Any suggestions?”<br>Here too, the AI detected the desire for a short-travel Mediterranean beach holiday and again answered “Nice, France.”</li><li>By comparing your question’s phrasing and context embeddings with those two stored examples, the AI re-used that retrieval–and-reuse solution pattern and returned “Nice, France” as its output.</li></ol>"
   }
   

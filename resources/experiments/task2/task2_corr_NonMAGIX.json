@@ -1,5 +1,5 @@
 {
     "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
+    "ai_explanation": "<div><p>The system applies a single decision rule that scores each candidate destination by combining the user’s priorities (i.e., relaxation and travel convenience) into one compact formula:</p><p><em>Score(destination) = 0.8 × (relaxation_rating) + 0.2 × max(0, (6 hours – travel_time) / 6 hours)</em></p><p><strong>How the decision was taken:</strong></p><ul><li>It first estimates each spot’s relaxation rating (on a 0–1 scale) and its travel time from Germany.</li><li>It then computes the weighted sum, giving 80% weight to relaxation and 20% to quick travel (capped at 6 hours).</li><li>Finally, it selects the destination with the highest score.</li></ul><p><strong>Why the decision was taken:</strong></p><ul><li><strong>Nice, France:</strong> relaxation ≈ 0.9, travel ≈ 4h → Score = 0.8 × 0.9 + 0.2 × ((6–4)/6) ≈ 0.79</li><li><strong>Barcelona:</strong> relaxation ≈ 0.8, travel ≈ 2.5h → Score ≈ 0.76</li></ul><p>Since 0.79 &gt; 0.76, the system chose <strong>Nice, France</strong>.</p></div>"
   }
   

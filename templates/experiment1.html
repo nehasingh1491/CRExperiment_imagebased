@@ -114,7 +114,7 @@
     <h2>Task 1</h2>
 
     <div class="box">
-      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to decide whether the AI’s answer is correct.</p>
+      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to decide whether the AI’s response is correct.</p>
     </div>
   
     <div class="box">
@@ -122,19 +122,19 @@
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
       <p><strong>Question:</strong> What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p>
 
-      <p><strong>AI Output:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
+      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
       {% if ai_explanation %}
       <p><strong>AI Explanation:</strong>
-      <em id="ai_explanation">{{ai_explanation}}</em></p>
-      {% endif %}
+      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+      {% endif %} 
 
 
     <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response" id="user_response" value="">
 
       <div class="button-group">
-        <p><strong>Your Judgement:</strong> Based on the AI output and explanation, do you think this is a correct answer?</p>
+        <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p>
 
         <button type="button" id="btn-yes" class="response-button" onclick="logAnswer('Yes')" >Yes, it is correct</button>
         <button type="button" id="btn-no" class="response-button" onclick="logAnswer('No')">No, it is incorrect</button>

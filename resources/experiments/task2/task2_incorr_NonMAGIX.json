@@ -1,5 +1,4 @@
 {
-    "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
-  }
-  
+  "ai_answer": "Phuket, Thailand",
+  "ai_explanation": "<div><p>The system applies a single decision rule that scores each candidate destination by combining the user’s priorities—relaxation and travel convenience—into this formula:</p><p><strong>Score(destination)</strong> = 0.90 × (relaxation_rating) + 0.10 × max(0, (7 hours – travel_time) / 7 hours)</p><p><strong>How the decision was taken:</strong><br>It estimates each destination’s relaxation rating (scale 0–1) and travel time from Germany. Then it calculates a convenience score, floored at zero for travel times over 7 hours. The final score is a weighted sum: 90% relaxation and 10% convenience.</p><p><strong>Why the decision was taken:</strong><br>Phuket scores high on relaxation (~0.98) but poorly on convenience (11.5 h travel → 0). Final score = 0.9×0.98 + 0.1×0 = 0.882.<br>Barcelona, for example, scores ~0.76, so Phuket wins under this rule.</p></div>"
+}

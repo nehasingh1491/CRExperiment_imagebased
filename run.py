@@ -493,7 +493,7 @@ def task4():
 
     exp_is_done = request.cookies.get('experiment-is_done', 'not_done')
     if exp_is_done != 'DONE':
-        json_path = os.path.join(task3_path, cr_file)
+        json_path = os.path.join(task4_path, cr_file)
 
         if cr_file.endswith("NoXAI.json"):
             ai_explanation = None  # or set explanation block to be hidden

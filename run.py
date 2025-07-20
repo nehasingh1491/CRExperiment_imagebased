@@ -342,6 +342,19 @@ def start():
         return resp
     else:
         return redirect(url_for('already_done'))
+    
+@app.route("/pre_dem_que", methods=['GET', 'POST'])
+def pre_questions():
+    """
+    Return the page "templates/dem_questions.html"
+    """
+    user_id = request.cookies.get('experiment-userid', 'userNotFound')
+    if request.method == 'POST':
+        data: dict = request.form.to_dict()
+        log_received_data(user_id, data)
+
+    resp = make_response(render_template("pre_dem_questions.html", title='Pre experiment Questions'))
+    return resp
 
 
 @app.route("/experiment1", methods=['GET', 'POST'])

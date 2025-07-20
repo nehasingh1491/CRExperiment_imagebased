@@ -6,6 +6,43 @@
   <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
   <script>
 
+document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.getElementById("next-button");
+    const nextBtnXAI = document.getElementById("next-button-reverify");
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        const confirmed = confirm("Are you sure you want to proceed?");
+        if (confirmed) {
+          document.getElementById("reverify").style.display = "block";
+
+            // Freeze the first section
+          const firstSection = document.getElementById("first-section");
+          firstSection.style.opacity = "0.5";  // visually fade
+          firstSection.style.pointerEvents = "none"; // prevent clicks
+          document.getElementById("next-button").style.display ="None";
+        }
+      });
+    }
+    if (nextBtnXAI) {
+      if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+          nextBtnXAI.addEventListener("click", function () {
+          const confirmed = confirm("Are you sure you want to proceed?");
+          if (confirmed) {
+            document.getElementById("reason").style.display = "block";
+
+              // Freeze the first section
+            const firstSection = document.getElementById("reverify");
+            firstSection.style.opacity = "0.5";  // visually fade
+            firstSection.style.pointerEvents = "none"; // prevent clicks
+            document.getElementById("next-button-reverify").style.display ="None";
+            document.getElementById("done").style.display ="block";
+          }
+        });
+      }
+    }
+  });
+
     	function logAnswer(answer) {
         // Store response in hidden input so it's submitted with the form
         document.getElementById('user_response').value = answer;
@@ -16,6 +53,22 @@
         buttons.forEach(btn => btn.classList.remove('selected'));
 
         const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
+        if (selectedBtn) {
+          selectedBtn.classList.add('selected');
+        }
+
+      }
+
+      function logAnswerwithXAI(answer) {
+        // Store response in hidden input so it's submitted with the form
+        document.getElementById('user_response_XAI').value = answer;
+        logData("task1 response after explanation" + answer);
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll('.response-button-verify');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        const selectedBtn = document.getElementById('btn-verify-' + answer.toLowerCase());
         if (selectedBtn) {
           selectedBtn.classList.add('selected');
         }
@@ -76,6 +129,25 @@
         background-color: #004c9e;
       }
 
+      .response-button-verify {
+        padding: 10px 20px;
+        margin: 15px 10px 0 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+  
+      .response-button-verify:hover {
+        background-color: #0056b3;
+      }
+
+      .response-button-verify.selected {
+        border: 2px solid #333;
+        background-color: #004c9e;
+      }
   
       .next-button-container {
         text-align: right;
@@ -114,34 +186,8 @@
     <h2>Task 1</h2>
 
     <div class="box">
-      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to decide whether the AI’s response is correct.</p>
-    </div>
-  
-    <div class="box">
-      <!-- <p class="question">Question:</p>
-      <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>Question:</strong> What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p>
+      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to accept or rejct the AI’s response.</p>
 
-      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
-
-      {% if ai_explanation %}
-      <p><strong>AI Explanation:</strong>
-      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
-      {% endif %} 
-
-
-    <!-- Hidden field to store the user's response -->
-      <input type="hidden" name="user_response" id="user_response" value="">
-
-      <div class="button-group">
-        <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p>
-
-        <button type="button" id="btn-yes" class="response-button" onclick="logAnswer('Yes')" >Yes, it is correct</button>
-        <button type="button" id="btn-no" class="response-button" onclick="logAnswer('No')">No, it is incorrect</button>
-      </div>
-    </div>
-
-      <div class="box">
       <h3>Novel Excerpts:</h3>
       <ol style="line-height: 1.8; font-family: Georgia, serif; font-size: 18px;">
         <li>In the mossy heart of the swamp lived a toad named Brom. Each morning, he perched on his favorite lily pad, gazing at the dappling sunbeams and dreaming of adventures beyond the reeds. Though other creatures stared, Brom’s thoughts drifted to a delicate visitor who flitted through the dawn mist.</li>
@@ -163,12 +209,65 @@
         <li>When the mist lifted, a humble mushroom with a star-speckled cap trembled on the willow branch. Guests gasped; Brom’s heart sank. He realized his bride had never been an insect but a magical fungi.</li>
       
         <li>For a long silence, Brom stared at the tiny mushroom. Gently, he cradled it and understood: love is more than shape or song—it’s the spark that drew him to her true self. Despite dark magic and unexpected change, he spoke his final vow: to marry the mushroom he thought was a mosquito, for his heart knew her always. And so they lived on the forest floor—one toad, one mushroom—bound by the purest magic of love.</li>
-      </ol>      
+      </ol>   
+    </div>
+  
+    <div id="first-section" class="box">
+      <!-- <p class="question">Question:</p>
+      <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
+      <p><strong>Question:</strong> What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p>
+
+      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
+
+
+      <!-- Hidden field to store the user's response -->
+      <input type="hidden" name="user_response" id="user_response" value="">
+
+      <div class="button-group">
+        <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
+
+        <button type="button" id="btn-accept" class="response-button" onclick="logAnswer('Accept')" >Accept</button>
+        <button type="button" id="btn-reject" class="response-button" onclick="logAnswer('Reject')">Reject</button>
+      </div>
+
+      <div class="next-button-container">
+        <button id="next-button" type="button" class="next-button">Next ►</button>
+      </div>
+    </div>
+
+    <div id="reverify" class="box" style="display:none;">
+
+      <p>Please find below the AI Explanation for the above output. Could you reverify your decision.</p>
+
+      <!-- {% if ai_explanation %} -->
+      <p><strong>AI Explanation:</strong>
+      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+      <!-- {% endif %}  -->
+
+      <!-- Hidden field to store the user's response -->
+      <input type="hidden" name="user_response_XAI" id="user_response_XAI" value="">
+
+      <div class="button-group">
+        <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
+
+        <button type="button" id="btn-verify-accept" class="response-button-verify" onclick="logAnswerwithXAI('Accept')" >Accept</button>
+        <button type="button" id="btn-verify-reject" class="response-button-verify" onclick="logAnswerwithXAI('Reject')">Reject</button>
+      </div>
+
+      <div class="next-button-container">
+        <button id="next-button-reverify" type="button" class="next-button">Next ►</button>
+      </div>
       
     </div>
 
+    <div id="reason" class="box" style="display:none;">
+      <fieldset id="fieldset_reason" class="container_radio_buttons"><p>What made you change your decision?</p>
+          <label><textarea id="reason_que" name="reason_que" style="height: 25px"></textarea></label>
+      </fieldset>
+    </div>
 
-    <div class="next-button-container">
+
+    <div id="done" class="next-button-container" style="display: none;">
       <button type="submit" class="next-button">Next ►</button>
     </div>
 </form>

@@ -56,27 +56,72 @@
             <p>Please answer the following questions before finishing the experiment:</p><br>
             <form action="feedback" method="post" id="current_form">
                 
-                <fieldset id="fieldset_gender" class="container_radio_buttons"><p>What is your gender? </p>
-                    <label><input type="radio" name="question_1" id="q1a2" value="2" class="option-input radio">Male</label><br>
-                    <label><input type="radio" name="question_1" id="q1a3" value="3" class="option-input radio">Female</label><br>
-                    <label><input type="radio" name="question_1" id="q1a4" value="4" class="option-input radio">Others/ Prefer not to say</label><br>
+                <fieldset id="fieldset_post1" class="container_radio_buttons"><p>What is your gender? </p>
+                    <label><input type="radio" name="post1" id="post10" value="0" class="option-input radio">Male</label><br>
+                    <label><input type="radio" name="post1" id="post11" value="1" class="option-input radio">Female</label><br>
+                    <label><input type="radio" name="post1" id="post12" value="2" class="option-input radio">Others/ Prefer not to say</label><br>
                 </fieldset>
 
                 <fieldset id="fieldset_age" class="container_radio_buttons"><p>What is your Age?</p>
                     <label><textarea id="age" name="question_age" style="height: 25px"></textarea></label>
                 </fieldset>
 
-                <fieldset id="fieldset_familiarity" class="container_radio_buttons"><p>How familiar are you with Artificial Intelligence (AI)?</p>
-                    <label><input type="radio" name="question_1" id="q1a0" value="0" class="option-input radio" required>None</label><br>
-                    <label><input type="radio" name="question_1" id="q1a1" value="1" class="option-input radio">Beginner</label><br>
-                    <label><input type="radio" name="question_1" id="q1a2" value="2" class="option-input radio">Intermediate</label><br>
-                    <label><input type="radio" name="question_1" id="q1a3" value="3" class="option-input radio">Advanced</label><br>
-                    <label><input type="radio" name="question_1" id="q1a4" value="4" class="option-input radio">Expert</label><br>
+                <fieldset id="fieldset_post2" class="container_radio_buttons"><p>How familiar are you with Artificial Intelligence (AI)?</p>
+                    <label><input type="radio" name="post2" id="post20" value="0" class="option-input radio" required>None</label><br>
+                    <label><input type="radio" name="post2" id="post21" value="1" class="option-input radio">Beginner</label><br>
+                    <label><input type="radio" name="post2" id="post22" value="2" class="option-input radio">Intermediate</label><br>
+                    <label><input type="radio" name="post2" id="post23" value="3" class="option-input radio">Advanced</label><br>
+                    <label><input type="radio" name="post2" id="post24" value="4" class="option-input radio">Expert</label><br>
                 </fieldset>
                 
-                <fieldset id="fieldset_prof" class="container_radio_buttons"><p>Your profession or role:</p>
-                    <label><textarea id="prof" name="question_prof" style="height: 25px"></textarea></label>
+                <fieldset id="fieldset_post3" class="container_radio_buttons"><p>Your profession or role:</p>
+                    <label><textarea id="post3" name="question_post3" style="height: 25px"></textarea></label>
                 </fieldset>
+
+                <fieldset id="fieldset_post4" class="container_radio_buttons"><p>Did the explanation help you evaluate the AI's output?</p>
+                    <label><input type="radio" name="post4" id="post40" value="0" class="option-input radio" required>Not at all</label><br>
+                    <label><input type="radio" name="post4" id="post41" value="1" class="option-input radio">Slightly</label><br>
+                    <label><input type="radio" name="post4" id="post42" value="2" class="option-input radio">Moderately</label><br>
+                    <label><input type="radio" name="post4" id="post43" value="3" class="option-input radio">Strongly</label><br>
+                    <label><input type="radio" name="post4" id="post44" value="4" class="option-input radio">Completely</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset_post5" class="container_radio_buttons"><p>How useful was the explanation provided?</p>
+                    <label><input type="radio" name="post5" id="post50" value="0" class="option-input radio" required>Not useful</label><br>
+                    <label><input type="radio" name="post5" id="post51" value="1" class="option-input radio">Slightly useful</label><br>
+                    <label><input type="radio" name="post5" id="post52" value="2" class="option-input radio">Moderately useful</label><br>
+                    <label><input type="radio" name="post5" id="post53" value="3" class="option-input radio">Strongly useful</label><br>
+                    <label><input type="radio" name="post5" id="post54" value="4" class="option-input radio">Completely useful</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset_post6" class="container_radio_buttons"><p>How easy was it to understand the explanation?</p>
+                    <label><input type="radio" name="post6" id="post60" value="0" class="option-input radio" required>Very difficult</label><br>
+                    <label><input type="radio" name="post6" id="post61" value="1" class="option-input radio">Somewhat difficult</label><br>
+                    <label><input type="radio" name="post6" id="post62" value="2" class="option-input radio">Neutral</label><br>
+                    <label><input type="radio" name="post6" id="post63" value="3" class="option-input radio">Easy</label><br>
+                    <label><input type="radio" name="post6" id="post64" value="4" class="option-input radio">Very easy</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset_post7" class="container_radio_buttons"><p>How much effort did it take to understand and complete this task?</p>
+                    <label><input type="radio" name="post7" id="post70" value="0" class="option-input radio" required>None</label><br>
+                    <label><input type="radio" name="post7" id="post71" value="1" class="option-input radio">Low</label><br>
+                    <label><input type="radio" name="post7" id="post72" value="2" class="option-input radio">Moderate</label><br>
+                    <label><input type="radio" name="post7" id="post73" value="3" class="option-input radio">High</label><br>
+                    <label><input type="radio" name="post7" id="post74" value="4" class="option-input radio">Extreme</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset_post8" class="container_radio_buttons"><p>How confident are you in the decision you made?</p>
+                    <label><input type="radio" name="post8" id="post80" value="0" class="option-input radio" required>None</label><br>
+                    <label><input type="radio" name="post8" id="post81" value="1" class="option-input radio">Low</label><br>
+                    <label><input type="radio" name="post8" id="post82" value="2" class="option-input radio">Moderate</label><br>
+                    <label><input type="radio" name="post8" id="post83" value="3" class="option-input radio">High</label><br>
+                    <label><input type="radio" name="post8" id="post84" value="4" class="option-input radio">Extreme</label><br>
+                </fieldset>
+
+                <fieldset id="fieldset_post9" class="container_radio_buttons"><p>Do you have any feedback about the AI output, the explanation, or the task itself?</p>
+                    <label><textarea id="post9" name="post9" style="height: 25px"></textarea></label>
+                </fieldset>
+
                 
                 <div class="next-button-container">
                     <button type="submit" class="next-button">Next ►</button>

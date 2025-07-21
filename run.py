@@ -346,14 +346,33 @@ def start():
 @app.route("/pre_dem_que", methods=['GET', 'POST'])
 def pre_questions():
     """
-    Return the page "templates/dem_questions.html"
+    Return the page "templates/pre_dem_questions.html"
+    """
+    user_id = request.cookies.get('experiment-userid', 'userNotFound')
+    if request.method == 'POST':
+        honeypot = request.form.get("honeypot_field", "").strip()
+        if honeypot:
+            # Detected bot submission
+            app.logger.warning(f"Honeypot triggered by {user_id}. Bot submission ignored.")
+            return "Bot submission rejected.", 400
+        
+        data: dict = request.form.to_dict()
+        log_received_data(user_id, data)
+
+    resp = make_response(render_template("pre_dem_questions.html", title='Pre experiment Questions'))
+    return resp
+
+@app.route("/instructions", methods=['GET', 'POST'])
+def get_instructions():
+    """
+    Return the page "templates/instructions.html"
     """
     user_id = request.cookies.get('experiment-userid', 'userNotFound')
     if request.method == 'POST':
         data: dict = request.form.to_dict()
         log_received_data(user_id, data)
 
-    resp = make_response(render_template("pre_dem_questions.html", title='Pre experiment Questions'))
+    resp = make_response(render_template("instructions.html", title='Instructiosn for task'))
     return resp
 
 

@@ -1,5 +1,5 @@
 {
-    "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
+    "ai_answer": "The article falsely claims that the Moon’s brightness is increasing due to solar activity and secret lunar mining, leading to ecological disruption, insomnia, and even astrological imbalances. It fabricates a 12% albedo rise, unverified insomnia statistics, and suggests a nonexistent UN “Moonlight Treaty.” Additionally, it promotes baseless conspiracy theories involving surveillance and pharmaceutical manipulation, all without credible scientific evidence.",  
+    "ai_explanation": "The AI breaks the article into individual claims and checks each against trusted sources. For each claim, it computes an evidence score (E) using source relevance and authority. Claims with E ≥ 0.7 are marked as true; others are flagged as false.<br><br><strong>Flagged as true (E ≥ 0.7):</strong><br>Solar-cycle brightness bump: E = 0.9 ≥ 0.7 → supported by NASA data<br><br><strong>Flagged as false (E < 0.7):</strong><br>12% albedo rise: E ≈ 0.24 < 0.7 → no authoritative source found<br>Insomnia spike: E ≈ 0.18 < 0.7 → no authoritative source found<br>“Moonlight Treaty”: E = 0 < 0.7 → no authoritative source found<br>Surveillance/pharma conspiracy: E ≈ 0.05 < 0.7 → no authoritative source found"    
   }
   

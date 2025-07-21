@@ -28,66 +28,69 @@
     </script>
 
 <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    .start-button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 20px;
-      background-color: #4CAF50;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-      font-size: 16px;
-    }
-    .checkbox {
-      margin: 15px 0;
-    }
-  </style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #222;
+        font-size: 18px;
+      }
+  h2 {
+    color: #111;
+  }
+  .checkbox {
+    margin: 20px 0;
+  }
+  .start-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+  }
+  .start-button:hover {
+    background-color: #0056b3;
+  }
+  input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  transform: scale(1.5); /* Optional for smooth scaling */
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+</style>
 </head>
 <body>
-    <section class="content">
-        <form action="pre_dem_que" method="post" id="my-form">
-            <h2>Dear participant,</h2>
+<form action="pre_dem_que" method="post" id="my-form">
+  <h2>Dear participant,</h2>
 
-            <p>We are researchers investigating how to improve human interaction with AI systems. We would appreciate it if you could participate in our experiment to help us in this research study.</p>
-          
-            <p><strong>In this experiment:</strong></p>
-            <ul>
-              <li>You will be asked to evaluate the output of an AI system in a short task.</li>
-              <li>The task takes approximately 5 minutes to complete.</li>
-              <li>No prior domain knowledge is required, but general digital literacy is helpful.</li>
-            </ul>
-          
-            <p>Your responses will be collected and stored anonymously. This means we cannot link your answers back to you in any way.</p>
-          
-            <div class="checkbox">
-              <label><input type="checkbox" required> I agree with the data handling policy</label>
-            </div>
-          
-            <p>Thank you, and we hope you enjoy participating in our study!</p>
-          
-            <hr>
-          
-            <!-- <h3>Instructions Before the Task:</h3>
-            <p>You will be shown a short scenario involving an AI system. In each case, you will see:</p>
-            <ul>
-              <li>A task description</li>
-              <li>An AI-generated output</li>
-              <li>An explanation (or no explanation, depending on the condition)</li>
-            </ul>
-            <p>Your job is to decide whether the AI output is correct based on the given context.</p>
-            <p>Please read each task carefully and answer honestly. There are no right or wrong answers—just your judgment.</p> -->
+  <p>Thank you for your interest in our research. We are conducting a study to explore how people interact with AI systems, and we would greatly appreciate your participation.</p>
 
+  <p><strong>What to expect:</strong></p>
+  <ul>
+    <li>You will complete a short task involving the evaluation of an AI system’s output.</li>
+    <li>The task takes approximately <strong>5 minutes</strong> to complete.</li>
+    <li>No specific expertise is required, but general digital literacy will be helpful.</li>
+  </ul>
 
-            <button type="submit" class="button blue">Start ►</button>
-        </form>
+  <p>Your responses will be collected <strong>anonymously</strong>. This means we will not store any personal information, and your answers cannot be linked back to you.</p>
 
-    </section>
+  <div class="checkbox">
+    <label><input type="checkbox" required> I agree to the anonymous collection of my responses for research purposes.</label>
+  </div>
+
+  <p>We truly appreciate your time and hope you find the experience engaging!</p>
+
+  <button type="submit" class="start-button">Start ►</button>
+</form>
 </body>
 </html>

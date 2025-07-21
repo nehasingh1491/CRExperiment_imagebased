@@ -1,6 +1,7 @@
 {
-    "ai_answer": "Phuket, Thailand",
-    "ai_explanation": "<div><p>The system generated this answer by retrieving two prior, analogous Q&amp;A instances from its case library and then mapped the current question onto those cases:</p><p><strong>Case #1:</strong> “Where can I go for a relaxing beach holiday within a short flight from Kuala Lumpur? I live in Malaysia.”<br>In that earlier interaction, the AI identified the user’s desire for a nearby, restful seaside destination and recommended <em>Phuket, Thailand</em>.</p><p><strong>Case #2:</strong> “I’m based in Bangkok and want a laid-back beach break without a long-haul flight. Suggestions?”<br>Here too, the AI matched the travel-time constraint and relaxation focus, and again answered <em>Phuket, Thailand</em>.</p><p>By comparing your question’s phrasing and context embeddings with those two stored examples, the AI re-used that retrieval–and-reuse solution pattern and returned <strong>“Phuket, Thailand”</strong> as its output.</p></div>"
-  }
+    "ai_answer": "<p>Top recommendation: Sharm El Sheikh, Egypt</p><p>Alternates (in order): Azores (Portugal), Zanzibar (Tanzania)</p>",
+    "ai_explanation": "<p>To explain how the AI made that decision, we looked for past answers to questions close to yours:</p><ul><li><strong>Case #1</strong> (“I’m based in Athens and want a laid-back beach break without a long-haul flight. Suggestions?”): Here too, the AI answered [Sharm El Sheikh, Mykonos, Crete]</li><li><strong>Case #2</strong> (“Where can I go for a relaxing beach holiday out of Europe? I live in Lisbon, Portugal.”): In that earlier interaction, the AI recommended [Sharm El Sheikh, Zanzibar, Maldives]</li></ul>"
+}
+    
   
   

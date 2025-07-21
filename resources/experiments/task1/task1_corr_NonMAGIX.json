@@ -1,6 +1,6 @@
 {
     "ai_answer": "A mushroom which was magically turned into a mosquito.",
-    "ai_explanation": "<ol><li>The system generated this answer by retrieving two prior, analogous Q&amp;A instances from its case library and then mapped the current question onto those cases:</li><li><strong>Case #1</strong> (“What form did Brom’s bride take after Serpentus’s spell?”)<br>In that earlier interaction, the AI confronted the identical excerpt and, focusing on the line “became a mushroom at Brom’s feet,” answered “a mushroom.”</li><li><strong>Case #2</strong> (“Did Brom end up marrying the mosquito or something else?”)<br>Here too, the AI parsed the final stanza under the willow branch and, noting the star-speckled cap description, selected “the mushroom.”</li><li>By comparing your question’s phrasing and context embeddings with those two stored examples, the AI re-used that solution pattern and returned “a mushroom” as its output.</li></ol>"
-  }
+    "ai_explanation": "To explain how the AI made that decision we looked for past answers to questions close to yours:<ul><li><strong>Case #1</strong> (“What form did Brom’s bride take after Serpentus’s spell?”): In that earlier interaction, the AI confronted the identical excerpt and answered “a mushroom.”</li><li><strong>Case #2</strong> (“Did Brom end up marrying the mosquito or something else?”): Here too, the AI answered “the mushroom.”</li></ul>"
+}
   
   

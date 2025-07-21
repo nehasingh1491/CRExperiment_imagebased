@@ -6,83 +6,288 @@
   <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
   <script>
 
+document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.getElementById("next-button");
+    const nextBtnXAI = document.getElementById("next-button-reverify");
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        const confirmed = confirm("Are you sure you want to proceed?");
+        if (confirmed) {
+          document.getElementById("reverify").style.display = "block";
+
+            // Freeze the first section
+          const firstSection = document.getElementById("first-section");
+          firstSection.style.opacity = "0.5";  // visually fade
+          firstSection.style.pointerEvents = "none"; // prevent clicks
+          document.getElementById("next-button").style.display ="None";
+        }
+      });
+    }
+    if (nextBtnXAI) {
+      if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+          nextBtnXAI.addEventListener("click", function () {
+          const confirmed = confirm("Are you sure you want to proceed?");
+          if (confirmed) {
+            document.getElementById("reason").style.display = "block";
+
+              // Freeze the first section
+            const firstSection = document.getElementById("reverify");
+            firstSection.style.opacity = "0.5";  // visually fade
+            firstSection.style.pointerEvents = "none"; // prevent clicks
+            document.getElementById("next-button-reverify").style.display ="None";
+            document.getElementById("done").style.display ="block";
+          }
+        });
+      }
+    }
+    const story = document.getElementById("story");
+    const toggleBtn = document.getElementById("toggle-button");
+
+    toggleBtn.addEventListener("click", function () {
+      story.classList.toggle("expanded");
+      toggleBtn.textContent = story.classList.contains("expanded") ? "Show less ▲" : "Show more ▼";
+    });
+  });
+
     	function logAnswer(answer) {
         // Store response in hidden input so it's submitted with the form
         document.getElementById('user_response').value = answer;
-        logData("task4 response " + answer);
+        logData("task1 response " + answer);
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll('.response-button');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
+        if (selectedBtn) {
+          selectedBtn.classList.add('selected');
+        }
+
       }
 
+      function logAnswerwithXAI(answer) {
+        // Store response in hidden input so it's submitted with the form
+        document.getElementById('user_response_XAI').value = answer;
+        logData("task1 response after explanation" + answer);
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll('.response-button-verify');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        const selectedBtn = document.getElementById('btn-verify-' + answer.toLowerCase());
+        if (selectedBtn) {
+          selectedBtn.classList.add('selected');
+        }
+      }
+
+
   </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    .question {
-      margin-top: 20px;
-    }
-    .response-button {
-      padding: 10px 20px;
-      margin: 10px 10px 0 0;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .response-button:hover {
-      background-color: #0056b3;
-    }
-    .next-button-container {
-      text-align: right;
-      margin-top: 30px;
-    }
-    .next-button {
-      padding: 10px 24px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .next-button:hover {
-      background-color: #218838;
-    }
-  </style>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #222;
+        font-size: 18px;
+      }
+  
+      h2, h3 {
+        color: #111;
+      }
+  
+      .box {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 20px 25px;
+        margin-top: 20px;
+      }
+  
+      .question {
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
+  
+      #ai_explanation{
+        color: #0056b3;
+        font-style: italic;
+      }
+  
+      .response-button {
+        padding: 10px 20px;
+        margin: 15px 10px 0 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+  
+      .response-button:hover {
+        background-color: #0056b3;
+      }
+
+      .response-button.selected {
+        border: 2px solid #333;
+        background-color: #004c9e;
+      }
+
+      .response-button-verify {
+        padding: 10px 20px;
+        margin: 15px 10px 0 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+  
+      .response-button-verify:hover {
+        background-color: #0056b3;
+      }
+
+      .response-button-verify.selected {
+        border: 2px solid #333;
+        background-color: #004c9e;
+      }
+  
+      .next-button-container {
+        text-align: right;
+        margin-top: 40px;
+      }
+  
+      .next-button {
+        padding: 10px 24px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+  
+      .next-button:hover {
+        background-color: #218838;
+      }
+  
+      .novel-section {
+        white-space: pre-wrap;
+        padding-top: 30px;
+        font-family: Georgia, serif;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+  
+      input[type="hidden"] {
+        display: none;
+      }
+      #story {
+        max-height: 2.0em; /* Just enough for the first <li> */
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      #story.expanded {
+        max-height: 2000px; /* big enough to show full text */
+      }
+
+      #toggle-button {
+        margin-top: 10px;
+        display: inline-block;
+        cursor: pointer;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      ol {
+        line-height: 1.8;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        padding-left: 20px;
+      }
+      textarea {
+        font-size: 18px;
+      }
+    </style>
 </head>
 <body>
-<form action="dem_que" method="post" id="task4_form">
-  <h2>Task 4</h2>
+<form action="experiment3" method="post" id="my-form">
+    <h2>Task 1</h2>
 
-  <p><strong>Scenario:</strong></p>
-  <p>You are using a smart travel assistant that recommends vacation destinations based on your preferences.</p>
+    <div class="box">
+      <p>You are planning a relaxing beach holiday that doesn’t require long travel—ideally around 2 hours. You’re based in Berlin, Germany, and want help finding the best destination.</p> 
+      <p>To assist you, an AI system has been given your preferences and constraints. It has produced a ranked list of the top 3 vacation spots that match your needs, along with a brief reason for each recommendation.</p> 
+      <p>Please review the AI’s suggestions and consider whether they make sense given your goal.</p>
 
-  <p><strong>Your preference:</strong> A relaxing beach vacation with minimal travel time.</p>
+      <!-- Honeypot field (hidden from users) -->
+      <input type="text" name="honeypot" id="honeypot" style="display: none;">
+    </div>
+  
+    <div id="first-section" class="box">
+      <!-- <p class="question">Question:</p>
+      <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
+      <p><strong>Question:</strong> Provide a ranked shortlist (top 3) of vacation destinations that fit the user’s preferences, and clearly state the primary reason each appears in the ranking.</p>
 
-  <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
+      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer | safe }}</em></p>
 
-  <p><strong>AI Explanation:</strong></p>
-  <p id="ai_explanation">{{ai_explanation}}</p>
 
-    <!-- Hidden field to store the user's response -->
-    <input type="hidden" name="user_response" id="user_response" value="">
+      <!-- Hidden field to store the user's response -->
+      <input type="hidden" name="user_response" id="user_response" value="">
 
-    <div class="question">
-        <p><strong>Question:</strong> Based on the AI output and explanation, do you think this is an appropriate recommendation?</p>
+      <div class="button-group">
+        <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
 
-        <button type="button" class="response-button" onclick="logAnswer('Yes')">Yes, it's appropriate</button>
-        <button type="button" class="response-button" onclick="logAnswer('No')">No, it's not appropriate</button>
+        <button type="button" id="btn-accept" class="response-button" onclick="logAnswer('Accept')" >Accept</button>
+        <button type="button" id="btn-reject" class="response-button" onclick="logAnswer('Reject')">Reject</button>
+      </div>
+
+      <div class="next-button-container">
+        <button id="next-button" type="button" class="next-button">Next ►</button>
+      </div>
     </div>
 
-    <div class="next-button-container">
+    <div id="reverify" class="box" style="display:none;">
+
+      <p>Below you'll find more details about the AI recommendation. Considering this new piece of information, do you accept or reject the AI recommendation?</p>
+
+      <!-- {% if ai_explanation %} -->
+      <p><strong>AI Explanation:</strong>
+      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+      <!-- {% endif %}  -->
+
+      <!-- Hidden field to store the user's response -->
+      <input type="hidden" name="user_response_XAI" id="user_response_XAI" value="">
+
+      <div class="button-group">
+        <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
+
+        <button type="button" id="btn-verify-accept" class="response-button-verify" onclick="logAnswerwithXAI('Accept')" >Accept</button>
+        <button type="button" id="btn-verify-reject" class="response-button-verify" onclick="logAnswerwithXAI('Reject')">Reject</button>
+      </div>
+
+      <div class="next-button-container">
+        <button id="next-button-reverify" type="button" class="next-button">Next ►</button>
+      </div>
+      
+    </div>
+
+    <div id="reason" class="box" style="display:none;">
+      <fieldset id="fieldset_reason" class="container_radio_buttons"><p>What made you change your decision?</p>
+          <label><textarea id="reason_que" name="reason_que" style="height: 125px;width: 100%;"></textarea></label>
+      </fieldset>
+    </div>
+
+
+    <div id="done" class="next-button-container" style="display: none;">
       <button type="submit" class="next-button">Next ►</button>
     </div>
-
 </form>
+
 </body>
 </html>

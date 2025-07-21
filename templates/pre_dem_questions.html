@@ -13,8 +13,12 @@
             <style>
                 body {
                     font-family: Arial, sans-serif;
-                    margin: auto;
-                    padding: 20px;
+                    max-width: 1200px;
+                    margin: 40px auto;
+                    padding: 0 20px;
+                    font-size: 20px;
+                    line-height: 1.6;
+                    color: #222;
                     font-size: 18px;
                 }
 
@@ -48,32 +52,35 @@
                 .next-button:hover {
                     background-color: #218838;
                 }
+                textarea {
+                    font-size: 18px;
+                }
             </style>
             
     </head>
     <body>
-        <form action="experiment1" method="post" id="dem_form">
+        <form action="instructions" method="post" id="pre_dem_form">
             <p>Please answer the following questions before finishing the experiment:</p><br>
             <form action="feedback" method="post" id="current_form">
 
                 <fieldset id="fieldset_pre1" class="container_radio_buttons"><p>How would you rate your overall attitude toward Artificial Intelligence (AI)?</p>
-                    <label><input type="radio" name="question_1" id="pre10" value="0" class="option-input radio" required>Very negative</label><br>
-                    <label><input type="radio" name="question_1" id="pre11" value="1" class="option-input radio">Somewhat negative</label><br>
-                    <label><input type="radio" name="question_1" id="pre12" value="2" class="option-input radio">Neutral</label><br>
-                    <label><input type="radio" name="question_1" id="pre13" value="3" class="option-input radio">Somewhat positive</label><br>
-                    <label><input type="radio" name="question_1" id="pre14" value="4" class="option-input radio">Very positive</label><br>
+                    <label><input type="radio" name="question_pre1" id="pre10" value="0" class="option-input radio" required>Very negative</label><br>
+                    <label><input type="radio" name="question_pre1" id="pre11" value="1" class="option-input radio">Somewhat negative</label><br>
+                    <label><input type="radio" name="question_pre1" id="pre12" value="2" class="option-input radio">Neutral</label><br>
+                    <label><input type="radio" name="question_pre1" id="pre13" value="3" class="option-input radio">Somewhat positive</label><br>
+                    <label><input type="radio" name="question_pre1" id="pre14" value="4" class="option-input radio">Very positive</label><br>
                 </fieldset>
                 
                 <fieldset id="fieldset_pre2" class="container_radio_buttons"><p>How much do you trust AI systems in general?</p>
-                    <label><input type="radio" name="question_1" id="pre20" value="0" class="option-input radio" required>Not at all</label><br>
-                    <label><input type="radio" name="question_1" id="pre21" value="1" class="option-input radio">A little</label><br>
-                    <label><input type="radio" name="question_1" id="pre22" value="2" class="option-input radio">Somewhat</label><br>
-                    <label><input type="radio" name="question_1" id="pre23" value="3" class="option-input radio">A lot</label><br>
-                    <label><input type="radio" name="question_1" id="pre24" value="4" class="option-input radio">Completely</label><br>
+                    <label><input type="radio" name="question_pre2" id="pre20" value="0" class="option-input radio" required>Not at all</label><br>
+                    <label><input type="radio" name="question_pre2" id="pre21" value="1" class="option-input radio">A little</label><br>
+                    <label><input type="radio" name="question_pre2" id="pre22" value="2" class="option-input radio">Somewhat</label><br>
+                    <label><input type="radio" name="question_pre2" id="pre23" value="3" class="option-input radio">A lot</label><br>
+                    <label><input type="radio" name="question_pre2" id="pre24" value="4" class="option-input radio">Completely</label><br>
                 </fieldset>
 
                 <fieldset id="fieldset_pre3" class="container_radio_buttons"><p>What is one word or phrase that describes how you feel about AI?</p>
-                    <label><textarea id="pre3" name="question_pre3" style="height: 25px"></textarea></label>
+                    <label><textarea id="pre3" name="question_pre3" required style="height: 25px;width: 100%;"></textarea></label>
                 </fieldset>
                 
                 <div class="next-button-container">

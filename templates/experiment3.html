@@ -6,83 +6,301 @@
   <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
   <script>
 
+document.addEventListener("DOMContentLoaded", function () {
+    const nextBtn = document.getElementById("next-button");
+    const nextBtnXAI = document.getElementById("next-button-reverify");
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        const confirmed = confirm("Are you sure you want to proceed?");
+        if (confirmed) {
+          document.getElementById("reverify").style.display = "block";
+
+            // Freeze the first section
+          const firstSection = document.getElementById("first-section");
+          firstSection.style.opacity = "0.5";  // visually fade
+          firstSection.style.pointerEvents = "none"; // prevent clicks
+          document.getElementById("next-button").style.display ="None";
+        }
+      });
+    }
+    if (nextBtnXAI) {
+      if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+          nextBtnXAI.addEventListener("click", function () {
+          const confirmed = confirm("Are you sure you want to proceed?");
+          if (confirmed) {
+            document.getElementById("reason").style.display = "block";
+
+              // Freeze the first section
+            const firstSection = document.getElementById("reverify");
+            firstSection.style.opacity = "0.5";  // visually fade
+            firstSection.style.pointerEvents = "none"; // prevent clicks
+            document.getElementById("next-button-reverify").style.display ="None";
+            document.getElementById("done").style.display ="block";
+          }
+        });
+      }
+    }
+    const article = document.getElementById("article");
+    const toggleBtn = document.getElementById("toggle-button");
+
+    toggleBtn.addEventListener("click", function () {
+      article.classList.toggle("expanded");
+      toggleBtn.textContent = story.classList.contains("expanded") ? "Show less ▲" : "Show more ▼";
+    });
+  });
+
     	function logAnswer(answer) {
         // Store response in hidden input so it's submitted with the form
         document.getElementById('user_response').value = answer;
-        logData("task3 response " + answer);
+        logData("task1 response " + answer);
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll('.response-button');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
+        if (selectedBtn) {
+          selectedBtn.classList.add('selected');
+        }
+
       }
 
+      function logAnswerwithXAI(answer) {
+        // Store response in hidden input so it's submitted with the form
+        document.getElementById('user_response_XAI').value = answer;
+        logData("task1 response after explanation" + answer);
+
+        // Highlight the selected button
+        const buttons = document.querySelectorAll('.response-button-verify');
+        buttons.forEach(btn => btn.classList.remove('selected'));
+
+        const selectedBtn = document.getElementById('btn-verify-' + answer.toLowerCase());
+        if (selectedBtn) {
+          selectedBtn.classList.add('selected');
+        }
+      }
+
+
   </script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 700px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
-    .question {
-      margin-top: 20px;
-    }
-    .response-button {
-      padding: 10px 20px;
-      margin: 10px 10px 0 0;
-      background-color: #007bff;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-    .response-button:hover {
-      background-color: #0056b3;
-    }
-    .next-button-container {
-      text-align: right;
-      margin-top: 30px;
-    }
-    .next-button {
-      padding: 10px 24px;
-      font-size: 16px;
-      background-color: #28a745;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .next-button:hover {
-      background-color: #218838;
-    }
-  </style>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+        font-size: 20px;
+        line-height: 1.6;
+        color: #222;
+        font-size: 18px;
+      }
+  
+      h2, h3 {
+        color: #111;
+      }
+  
+      .box {
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        padding: 20px 25px;
+        margin-top: 20px;
+      }
+  
+      .question {
+        font-weight: bold;
+        font-size: 1.1em;
+        margin-bottom: 10px;
+      }
+  
+      #ai_explanation{
+        color: #0056b3;
+        font-style: italic;
+      }
+  
+      .response-button {
+        padding: 10px 20px;
+        margin: 15px 10px 0 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+  
+      .response-button:hover {
+        background-color: #0056b3;
+      }
+
+      .response-button.selected {
+        border: 2px solid #333;
+        background-color: #004c9e;
+      }
+
+      .response-button-verify {
+        padding: 10px 20px;
+        margin: 15px 10px 0 0;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 15px;
+        cursor: pointer;
+      }
+  
+      .response-button-verify:hover {
+        background-color: #0056b3;
+      }
+
+      .response-button-verify.selected {
+        border: 2px solid #333;
+        background-color: #004c9e;
+      }
+  
+      .next-button-container {
+        text-align: right;
+        margin-top: 40px;
+      }
+  
+      .next-button {
+        padding: 10px 24px;
+        font-size: 16px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+  
+      .next-button:hover {
+        background-color: #218838;
+      }
+  
+      .novel-section {
+        white-space: pre-wrap;
+        padding-top: 30px;
+        font-family: Georgia, serif;
+        font-size: 15px;
+        line-height: 1.75;
+      }
+  
+      input[type="hidden"] {
+        display: none;
+      }
+      #story {
+        max-height: 2.0em; /* Just enough for the first <li> */
+        overflow: hidden;
+        transition: max-height 0.5s ease;
+      }
+
+      #story.expanded {
+        max-height: 2000px; /* big enough to show full text */
+      }
+
+      #toggle-button {
+        margin-top: 10px;
+        display: inline-block;
+        cursor: pointer;
+        color: #007bff;
+        font-weight: bold;
+      }
+
+      ol {
+        line-height: 1.8;
+        font-family: Georgia, serif;
+        font-size: 18px;
+        padding-left: 20px;
+      }
+      textarea {
+        font-size: 18px;
+      }
+    </style>
 </head>
 <body>
 <form action="experiment4" method="post" id="my-form">
-  <h2>Task 3</h2>
+    <h2>Task 1</h2>
 
-  <p><strong>Scenario:</strong></p>
-  <p>You are using a smart travel assistant that recommends vacation destinations based on your preferences.</p>
+    <div class="box">
+      <p>You are asked to evaluate the AI's summary of a viral news article. The AI has access to trusted sources, fact-checking tools, and expert commentary, and it has attempted to identify which parts of the article are false or misleading. Your task is to review the AI’s summary and explanation and decide whether the AI’s assessment is appropriate based on the given information.</p>
 
-  <p><strong>Your preference:</strong> A relaxing beach vacation with minimal travel time.</p>
+      <!-- Honeypot field (hidden from users) -->
+      <input type="text" name="honeypot" id="honeypot" style="display: none;">
 
-  <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
+      <div class="news-article" id="article" style="font-family: Georgia, serif; line-height: 1.75; font-size: 17px;">
+        <h2>BREAKING: Scientists Say Moon Will Soon Be “Too Bright” for Earth’s Ecosystem — NASA Issues Warning</h2>
+        <p>In a stunning announcement late Wednesday, NASA scientists warned that the Moon’s brightness is increasing and may soon disrupt Earth's delicate ecological balance. The unexpected development has left environmental experts scrambling to assess the long-term damage.</p>
+        <p>According to the leaked internal report obtained by <em>The Epoch Sky</em>, the Moon's surface reflectivity — or albedo — has increased by 12% over the past two years, a change scientists describe as “unprecedented in recorded history.” The change allegedly stems from an increase in solar radiation due to unknown cosmic activity near the sun.</p>
+        <p>Animals that rely on nighttime darkness for hunting or migration — such as sea turtles, owls, and bats — are now in crisis. “Some turtles are mistaking the moon for the sun and laying their eggs on rocks instead of sand,” said Dr. Ava Pritchard, a conservation biologist at the Global Nocturnal Fund. “Entire food chains could collapse.”</p>
+        <p>Experts believe the cause may be linked to secret experiments involving lunar mining by private companies. While SpaceX and Blue Origin have denied such claims, whistleblowers allege both companies have been testing “reflective dust materials” on the lunar surface to facilitate energy harvesting.</p>
+        <p>The Moon’s increased brightness has already led to a measurable 17% rise in global insomnia cases, according to a study by the European Sleep Research Council. “Human circadian rhythms are deeply tuned to lunar light cycles,” said lead researcher Johan Lindström. “We’re entering uncharted territory for mental health.”</p>
+        <p>Astrologers, too, are raising red flags. According to astrologer and TikTok influencer <strong>@CelestialRaven</strong>, the brighter moon may “disrupt water signs” and even shift emotional balances across entire nations. Her livestream on the topic drew over 2 million viewers within 24 hours.</p>
+        <p>Despite mounting public concern, world leaders have remained silent. The UN Climate Council declined to comment, but anonymous diplomats revealed that a “Moonlight Treaty” is being quietly drafted to regulate future lunar reflectivity and ensure fair access to nighttime darkness.</p>
+        <p>Conspiracy theorists are already calling this “MoonGate,” suggesting that the brightening was engineered to increase surveillance capabilities via high-atmosphere drones. Some claim it’s an intentional move to sabotage natural sleep patterns and increase global dependency on pharmaceuticals.</p>
+        <p>Regardless of the origin, one thing is clear: our nights may never be the same again. As the Moon grows brighter, scientists, citizens, and mystics alike are asking the same question — what happens when darkness itself begins to vanish?</p>
+      </div>
+      
+      <div id="toggle-button">Show more ▼</div>
+    </div>
+  
+    <div id="first-section" class="box">
+      <!-- <p class="question">Question:</p>
+      <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
+      <p><strong>Question:</strong> Evaluate and summarize which parts of a viral news article are false or misleading.</p>
 
-  <p><strong>AI Explanation:</strong></p>
-  <p id="ai_explanation">{{ai_explanation}}</p>
+      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
-    <!-- Hidden field to store the user's response -->
-    <input type="hidden" name="user_response" id="user_response" value="">
 
-    <div class="question">
-        <p><strong>Question:</strong> Based on the AI output and explanation, do you think this is an appropriate recommendation?</p>
+      <!-- Hidden field to store the user's response -->
+      <input type="hidden" name="user_response" id="user_response" value="">
 
-        <button type="button" class="response-button" onclick="logAnswer('Yes')">Yes, it's appropriate</button>
-        <button type="button" class="response-button" onclick="logAnswer('No')">No, it's not appropriate</button>
+      <div class="button-group">
+        <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
+
+        <button type="button" id="btn-accept" class="response-button" onclick="logAnswer('Accept')" >Accept</button>
+        <button type="button" id="btn-reject" class="response-button" onclick="logAnswer('Reject')">Reject</button>
+      </div>
+
+      <div class="next-button-container">
+        <button id="next-button" type="button" class="next-button">Next ►</button>
+      </div>
     </div>
 
-    <div class="next-button-container">
+    <div id="reverify" class="box" style="display:none;">
+
+      <p>Below you'll find more details about the AI recommendation. Considering this new piece of information, do you accept or reject the AI recommendation?</p>
+
+      <!-- {% if ai_explanation %} -->
+      <p><strong>AI Explanation:</strong>
+      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+      <!-- {% endif %}  -->
+
+      <!-- Hidden field to store the user's response -->
+      <input type="hidden" name="user_response_XAI" id="user_response_XAI" value="">
+
+      <div class="button-group">
+        <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
+
+        <button type="button" id="btn-verify-accept" class="response-button-verify" onclick="logAnswerwithXAI('Accept')" >Accept</button>
+        <button type="button" id="btn-verify-reject" class="response-button-verify" onclick="logAnswerwithXAI('Reject')">Reject</button>
+      </div>
+
+      <div class="next-button-container">
+        <button id="next-button-reverify" type="button" class="next-button">Next ►</button>
+      </div>
+      
+    </div>
+
+    <div id="reason" class="box" style="display:none;">
+      <fieldset id="fieldset_reason" class="container_radio_buttons"><p>What made you change your decision?</p>
+          <label><textarea id="reason_que" name="reason_que" style="height: 125px;width: 100%;"></textarea></label>
+      </fieldset>
+    </div>
+
+
+    <div id="done" class="next-button-container" style="display: none;">
       <button type="submit" class="next-button">Next ►</button>
     </div>
-
 </form>
+
 </body>
 </html>

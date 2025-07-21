@@ -25,21 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     if (nextBtnXAI) {
-      if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+      // if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
           nextBtnXAI.addEventListener("click", function () {
-          const confirmed = confirm("Are you sure you want to proceed?");
-          if (confirmed) {
-            document.getElementById("reason").style.display = "block";
+          const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
+          if (confirmed){
+            if(document.getElementById('user_response').value != document.getElementById('user_response_XAI').value){
+              document.getElementById("reason").style.display = "block";
+            }
 
-              // Freeze the first section
-            const firstSection = document.getElementById("reverify");
-            firstSection.style.opacity = "0.5";  // visually fade
-            firstSection.style.pointerEvents = "none"; // prevent clicks
-            document.getElementById("next-button-reverify").style.display ="None";
-            document.getElementById("done").style.display ="block";
-          }
+                // Freeze the first section
+              const firstSection = document.getElementById("reverify");
+              firstSection.style.opacity = "0.5";  // visually fade
+              firstSection.style.pointerEvents = "none"; // prevent clicks
+              document.getElementById("next-button-reverify").style.display ="None";
+              document.getElementById("done").style.display ="block";
+               
+          } 
         });
-      }
     }
     const story = document.getElementById("story");
     const toggleBtn = document.getElementById("toggle-button");
@@ -217,13 +219,13 @@ document.addEventListener("DOMContentLoaded", function () {
     </style>
 </head>
 <body>
-<form action="experiment3" method="post" id="my-form">
-    <h2>Task 1</h2>
+<form action="dem_que" method="post" id="my-form">
+    <h2>Task 4</h2>
 
     <div class="box">
-      <p>You are planning a relaxing beach holiday that doesn’t require long travel—ideally around 2 hours. You’re based in Berlin, Germany, and want help finding the best destination.</p> 
-      <p>To assist you, an AI system has been given your preferences and constraints. It has produced a ranked list of the top 3 vacation spots that match your needs, along with a brief reason for each recommendation.</p> 
-      <p>Please review the AI’s suggestions and consider whether they make sense given your goal.</p>
+      <p>You are looking for ideas for your next meal. You want something that is both gluten-free and vegetarian, but you’re not sure what to eat. An AI system suggests a possible meal based on your preferences. Your job is to review the AI’s suggestion and decide whether it fits your dietary needs.</p>
+      <p>Please read the recommendation and explanation carefully, then give your honest judgment.</p> 
+      
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
@@ -232,7 +234,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>Question:</strong> Provide a ranked shortlist (top 3) of vacation destinations that fit the user’s preferences, and clearly state the primary reason each appears in the ranking.</p>
+      <p><strong>Question:</strong> Help the user adjust their meal choice based on dietary restrictions.</p>
 
       <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer | safe }}</em></p>
 

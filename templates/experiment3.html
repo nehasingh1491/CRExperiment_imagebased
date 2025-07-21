@@ -25,21 +25,23 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     if (nextBtnXAI) {
-      if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+      // if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
           nextBtnXAI.addEventListener("click", function () {
-          const confirmed = confirm("Are you sure you want to proceed?");
-          if (confirmed) {
-            document.getElementById("reason").style.display = "block";
+          const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
+          if (confirmed){
+            if(document.getElementById('user_response').value != document.getElementById('user_response_XAI').value){
+              document.getElementById("reason").style.display = "block";
+            }
 
-              // Freeze the first section
-            const firstSection = document.getElementById("reverify");
-            firstSection.style.opacity = "0.5";  // visually fade
-            firstSection.style.pointerEvents = "none"; // prevent clicks
-            document.getElementById("next-button-reverify").style.display ="None";
-            document.getElementById("done").style.display ="block";
-          }
+                // Freeze the first section
+              const firstSection = document.getElementById("reverify");
+              firstSection.style.opacity = "0.5";  // visually fade
+              firstSection.style.pointerEvents = "none"; // prevent clicks
+              document.getElementById("next-button-reverify").style.display ="None";
+              document.getElementById("done").style.display ="block";
+               
+          } 
         });
-      }
     }
     const article = document.getElementById("article");
     const toggleBtn = document.getElementById("toggle-button");
@@ -218,7 +220,7 @@ document.addEventListener("DOMContentLoaded", function () {
 </head>
 <body>
 <form action="experiment4" method="post" id="my-form">
-    <h2>Task 1</h2>
+    <h2>Task 3</h2>
 
     <div class="box">
       <p>You are asked to evaluate the AI's summary of a viral news article. The AI has access to trusted sources, fact-checking tools, and expert commentary, and it has attempted to identify which parts of the article are false or misleading. Your task is to review the AI’s summary and explanation and decide whether the AI’s assessment is appropriate based on the given information.</p>

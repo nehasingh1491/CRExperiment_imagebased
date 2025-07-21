@@ -1,5 +1,6 @@
 {
-    "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
-  }
+  "ai_answer": "<p>Bulgur with Spinach and Cheese</p>",
+    "ai_explanation": "<p>To explain how and why the AI made that decision we looked for the closest past recommendations that mirror your case. Here are the top analogues—one per claim—presented as an easy-to-read list:</p><ul><li><strong>Case #1:</strong> “Gluten-free pasta alternatives for vegetarian diet” – Zucchini noodles were top-ranked because they align with both dietary constraints (no gluten, no animal products) and user preferences for whole-food alternatives. The AI prioritized nutrient density and meal simplicity.</li><li><strong>Case #2:</strong> “No wheat, no meat meal ideas” – Tomato basil over spiralized vegetables was well-reviewed because it met health-related exclusions while offering a satisfying flavor profile and minimal prep. The AI inferred preference for plant-based, low-carb substitutes that mimic traditional comfort dishes.</li></ul>"
+}
+    
   

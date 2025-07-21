@@ -1,5 +1,5 @@
 {
-    "ai_answer": "Nice, France",
-    "ai_explanation": "The AI considered destinations with short flight times and relaxing beaches. Nice was ranked highly due to proximity and user reviews from similar cases."
-  }
-  
+    "ai_answer": "<p>Bulgur with Spinach and Cheese</p>",
+    "ai_explanation": "<p>The AI retrieved earlier user cases where individuals on vegetarian and gluten-moderated diets requested hearty meals.</p><p><strong>Case #1: “Filling vegetarian dinners”</strong>: Bulgur with Spinach was selected due to its high protein and fiber content, which the AI prioritized to meet the user’s expressed need for satiety and nutritional completeness in a meatless meal.</p><p><strong>Case #2: “Comfort meals for semi-gluten-free vegetarians”</strong>: Bulgur with Cheese was included as a tolerated option because the user indicated flexibility with moderate gluten. The AI emphasized comfort and richness while still adhering to a loosely gluten-conscious pattern, identifying bulgur as acceptable when used sparingly.</p>"
+}
+    

@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
-        const confirmed = confirm("Are you sure you want to proceed?");
+        const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
         if (confirmed) {
           document.getElementById("reverify").style.display = "block";
 
@@ -25,22 +25,25 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     if (nextBtnXAI) {
-      if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+      // if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
           nextBtnXAI.addEventListener("click", function () {
-          const confirmed = confirm("Are you sure you want to proceed?");
-          if (confirmed) {
-            document.getElementById("reason").style.display = "block";
+          const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
+          if (confirmed){
+            if(document.getElementById('user_response').value != document.getElementById('user_response_XAI').value){
+              document.getElementById("reason").style.display = "block";
+            }
 
-              // Freeze the first section
-            const firstSection = document.getElementById("reverify");
-            firstSection.style.opacity = "0.5";  // visually fade
-            firstSection.style.pointerEvents = "none"; // prevent clicks
-            document.getElementById("next-button-reverify").style.display ="None";
-            document.getElementById("done").style.display ="block";
-          }
+                // Freeze the first section
+              const firstSection = document.getElementById("reverify");
+              firstSection.style.opacity = "0.5";  // visually fade
+              firstSection.style.pointerEvents = "none"; // prevent clicks
+              document.getElementById("next-button-reverify").style.display ="None";
+              document.getElementById("done").style.display ="block";
+               
+          } 
         });
-      }
     }
+    
     const story = document.getElementById("story");
     const toggleBtn = document.getElementById("toggle-button");
 
@@ -221,7 +224,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Task 1</h2>
 
     <div class="box">
-      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to accept or rejct the AI’s recommendation.</p>
+      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to accept or reject the AI’s recommendation.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">

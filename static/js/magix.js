@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
           return; // exit early
         }
 
-        const requiredGroups = ['post8'];
+        const requiredGroups = ['s1q1'];
         for (const group of requiredGroups) {
           if (!isRadioGroupAnswered(group)) {
             alert("Please answer the follow-up question before proceeding.");
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function () {
             return; // exit early
             }
 
-            const requiredGroups = ['post8', 'post4', 'post5', 'post6'];
+            const requiredGroups = ['s1q2', 's1q3', 's1q4', 's1q5'];
             for (const group of requiredGroups) {
               if (!isRadioGroupAnswered(group)) {
                 alert("Please answer all the follow-up questions before proceeding.");

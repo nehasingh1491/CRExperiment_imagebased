@@ -387,7 +387,7 @@ def task1():
     if request.method == 'POST':
         data: dict = request.form.to_dict()
         log_received_data(user_id, data)
-    log_data(str(user_id), "start", "cr-experiment")
+    log_data(str(user_id), "start", "scenario1")
 
     # Choosing experiment
     cr_file = choose_experiment_task1()
@@ -431,7 +431,7 @@ def task2():
     if request.method == 'POST':
         data: dict = request.form.to_dict()
         log_received_data(user_id, data)
-    log_data(str(user_id), "start", "cr-experiment")
+    log_data(str(user_id), "start", "scenario2")
 
     # Choosing experiment
     cr_file = choose_experiment_task2()
@@ -474,7 +474,7 @@ def task3():
     if request.method == 'POST':
         data: dict = request.form.to_dict()
         log_received_data(user_id, data)
-    log_data(str(user_id), "start", "cr-experiment")
+    log_data(str(user_id), "start", "scenario3")
 
     # Choosing experiment
     cr_file = choose_experiment_task3()
@@ -517,7 +517,7 @@ def task4():
     if request.method == 'POST':
         data: dict = request.form.to_dict()
         log_received_data(user_id, data)
-    log_data(str(user_id), "start", "cr-experiment")
+    log_data(str(user_id), "start", "scenario4")
 
     # Choosing experiment
     cr_file = choose_experiment_task4()

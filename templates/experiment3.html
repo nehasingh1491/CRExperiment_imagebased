@@ -4,232 +4,35 @@
   <meta charset="UTF-8">
   <title>Task 3 - MAGIX Experiment</title>
   <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
+  <link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/magix.css')}}" />
   <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-    const nextBtn = document.getElementById("next-button");
-    const nextBtnXAI = document.getElementById("next-button-reverify");
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        const confirmed = confirm("Are you sure you want to proceed?");
-        if (confirmed) {
-          document.getElementById("reverify").style.display = "block";
-
-            // Freeze the first section
-          const firstSection = document.getElementById("first-section");
-          firstSection.style.opacity = "0.5";  // visually fade
-          firstSection.style.pointerEvents = "none"; // prevent clicks
-          document.getElementById("next-button").style.display ="None";
-        }
-      });
-    }
-    if (nextBtnXAI) {
-      // if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
-          nextBtnXAI.addEventListener("click", function () {
-          const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
-          if (confirmed){
-            if(document.getElementById('user_response').value != document.getElementById('user_response_XAI').value){
-              document.getElementById("reason").style.display = "block";
-            }
-
-                // Freeze the first section
-              const firstSection = document.getElementById("reverify");
-              firstSection.style.opacity = "0.5";  // visually fade
-              firstSection.style.pointerEvents = "none"; // prevent clicks
-              document.getElementById("next-button-reverify").style.display ="None";
-              document.getElementById("done").style.display ="block";
-               
-          } 
-        });
-    }
     const article = document.getElementById("article");
     const toggleBtn = document.getElementById("toggle-button");
 
     toggleBtn.addEventListener("click", function () {
       article.classList.toggle("expanded");
-      toggleBtn.textContent = story.classList.contains("expanded") ? "Show less ▲" : "Show more ▼";
+      toggleBtn.textContent = article.classList.contains("expanded") ? "Show less ▲" : "Show more ▼";
     });
   });
 
-    	function logAnswer(answer) {
-        // Store response in hidden input so it's submitted with the form
-        document.getElementById('user_response').value = answer;
-        logData("task1 response " + answer);
+</script>
 
-        // Highlight the selected button
-        const buttons = document.querySelectorAll('.response-button');
-        buttons.forEach(btn => btn.classList.remove('selected'));
-
-        const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
-        if (selectedBtn) {
-          selectedBtn.classList.add('selected');
-        }
-
-      }
-
-      function logAnswerwithXAI(answer) {
-        // Store response in hidden input so it's submitted with the form
-        document.getElementById('user_response_XAI').value = answer;
-        logData("task1 response after explanation" + answer);
-
-        // Highlight the selected button
-        const buttons = document.querySelectorAll('.response-button-verify');
-        buttons.forEach(btn => btn.classList.remove('selected'));
-
-        const selectedBtn = document.getElementById('btn-verify-' + answer.toLowerCase());
-        if (selectedBtn) {
-          selectedBtn.classList.add('selected');
-        }
-      }
-
-
-  </script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 0 20px;
-        font-size: 20px;
-        line-height: 1.6;
-        color: #222;
-        font-size: 18px;
-      }
-  
-      h2, h3 {
-        color: #111;
-      }
-  
-      .box {
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        padding: 20px 25px;
-        margin-top: 20px;
-      }
-  
-      .question {
-        font-weight: bold;
-        font-size: 1.1em;
-        margin-bottom: 10px;
-      }
-  
-      #ai_explanation{
-        color: #0056b3;
-        font-style: italic;
-      }
-  
-      .response-button {
-        padding: 10px 20px;
-        margin: 15px 10px 0 0;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 15px;
-        cursor: pointer;
-      }
-  
-      .response-button:hover {
-        background-color: #0056b3;
-      }
-
-      .response-button.selected {
-        border: 2px solid #333;
-        background-color: #004c9e;
-      }
-
-      .response-button-verify {
-        padding: 10px 20px;
-        margin: 15px 10px 0 0;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 15px;
-        cursor: pointer;
-      }
-  
-      .response-button-verify:hover {
-        background-color: #0056b3;
-      }
-
-      .response-button-verify.selected {
-        border: 2px solid #333;
-        background-color: #004c9e;
-      }
-  
-      .next-button-container {
-        text-align: right;
-        margin-top: 40px;
-      }
-  
-      .next-button {
-        padding: 10px 24px;
-        font-size: 16px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-  
-      .next-button:hover {
-        background-color: #218838;
-      }
-  
-      .novel-section {
-        white-space: pre-wrap;
-        padding-top: 30px;
-        font-family: Georgia, serif;
-        font-size: 15px;
-        line-height: 1.75;
-      }
-  
-      input[type="hidden"] {
-        display: none;
-      }
-      #story {
-        max-height: 2.0em; /* Just enough for the first <li> */
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-      }
-
-      #story.expanded {
-        max-height: 2000px; /* big enough to show full text */
-      }
-
-      #toggle-button {
-        margin-top: 10px;
-        display: inline-block;
-        cursor: pointer;
-        color: #007bff;
-        font-weight: bold;
-      }
-
-      ol {
-        line-height: 1.8;
-        font-family: Georgia, serif;
-        font-size: 18px;
-        padding-left: 20px;
-      }
-      textarea {
-        font-size: 18px;
-      }
-    </style>
 </head>
 <body>
 <form action="experiment4" method="post" id="my-form">
-    <h2>Task 3</h2>
+    <h2>Scenario 3</h2>
 
     <div class="box">
-      <p>You are asked to evaluate the AI's summary of a viral news article. The AI has access to trusted sources, fact-checking tools, and expert commentary, and it has attempted to identify which parts of the article are false or misleading. Your task is to review the AI’s summary and explanation and decide whether the AI’s assessment is appropriate based on the given information.</p>
+      <p>You are asked to evaluate the AI's summary of a viral news article. The AI has access to trusted sources, fact-checking tools, and expert commentary, and it has attempted to identify which parts of the article are false or misleading. Your task is to review the AI’s summary and decide whether the AI’s recommendation is appropriate based on the given information.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
-
-      <div class="news-article" id="article" style="font-family: Georgia, serif; line-height: 1.75; font-size: 17px;">
-        <h2>BREAKING: Scientists Say Moon Will Soon Be “Too Bright” for Earth’s Ecosystem — NASA Issues Warning</h2>
+      
+      <h3>Article:</h3>
+      <div class="news-article" id="article">
+        <h4>BREAKING: Scientists Say Moon Will Soon Be “Too Bright” for Earth’s Ecosystem — NASA Issues Warning</h4>
         <p>In a stunning announcement late Wednesday, NASA scientists warned that the Moon’s brightness is increasing and may soon disrupt Earth's delicate ecological balance. The unexpected development has left environmental experts scrambling to assess the long-term damage.</p>
         <p>According to the leaked internal report obtained by <em>The Epoch Sky</em>, the Moon's surface reflectivity — or albedo — has increased by 12% over the past two years, a change scientists describe as “unprecedented in recorded history.” The change allegedly stems from an increase in solar radiation due to unknown cosmic activity near the sun.</p>
         <p>Animals that rely on nighttime darkness for hunting or migration — such as sea turtles, owls, and bats — are now in crisis. “Some turtles are mistaking the moon for the sun and laying their eggs on rocks instead of sand,” said Dr. Ava Pritchard, a conservation biologist at the Global Nocturnal Fund. “Entire food chains could collapse.”</p>
@@ -247,19 +50,33 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>Question:</strong> Evaluate and summarize which parts of a viral news article are false or misleading.</p>
+      <p><strong>AI Prompt:</strong> Evaluate and summarize which parts of a viral news article are false or misleading.</p>
 
-      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
+      <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response" id="user_response" value="">
 
+      <br>
+      <p><strong>Would you like to accept or reject the AI's recommendation?</strong></p>
       <div class="button-group">
         <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
 
         <button type="button" id="btn-accept" class="response-button" onclick="logAnswer('Accept')" >Accept</button>
         <button type="button" id="btn-reject" class="response-button" onclick="logAnswer('Reject')">Reject</button>
+      </div>
+
+      <br>
+      <div id="question-block1" style="display: none;">
+        <fieldset id="fieldset_post8" class="container_radio_buttons">
+          <p>How confident are you in the decision you made?</p>
+          <label><input type="radio" name="s3q1" id="s3q1_0" value="0" class="option-input radio" required>Not at all confident</label><br>
+          <label><input type="radio" name="s3q1" id="s3q1_1" value="1" class="option-input radio">Slightly confident</label><br>
+          <label><input type="radio" name="s3q1" id="s3q1_2" value="2" class="option-input radio">Somewhat confident</label><br>
+          <label><input type="radio" name="s3q1" id="s3q1_3" value="3" class="option-input radio">Very confident</label><br>
+          <label><input type="radio" name="s3q1" id="s3q1_4" value="4" class="option-input radio">Extremely confident</label><br>
+        </fieldset>
       </div>
 
       <div class="next-button-container">
@@ -269,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div id="reverify" class="box" style="display:none;">
 
-      <p>Below you'll find more details about the AI recommendation. Considering this new piece of information, do you accept or reject the AI recommendation?</p>
+      <p>Below you'll find more details about the AI recommendation.</p>
 
       <!-- {% if ai_explanation %} -->
       <p><strong>AI Explanation:</strong>
@@ -279,11 +96,50 @@ document.addEventListener("DOMContentLoaded", function () {
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_XAI" id="user_response_XAI" value="">
 
+      <br>
+      <p><strong>Considering this new piece of information, would you like to accept or reject the AI's recommendation?</strong></p>
       <div class="button-group">
         <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
 
         <button type="button" id="btn-verify-accept" class="response-button-verify" onclick="logAnswerwithXAI('Accept')" >Accept</button>
         <button type="button" id="btn-verify-reject" class="response-button-verify" onclick="logAnswerwithXAI('Reject')">Reject</button>
+      </div>
+
+      <br>
+      <div id="question-block2" style="display: none;">
+        <fieldset id="fieldset_post8" class="container_radio_buttons">
+          <p>How confident are you in the decision you made?</p>
+          <label><input type="radio" name="s3q2" id="s3q2_0" value="0" class="option-input radio" required>Not at all confident</label><br>
+          <label><input type="radio" name="s3q2" id="s3q2_1" value="1" class="option-input radio">Slightly confident</label><br>
+          <label><input type="radio" name="s3q2" id="s3q2_2" value="2" class="option-input radio">Somewhat confident</label><br>
+          <label><input type="radio" name="s3q2" id="s3q2_3" value="3" class="option-input radio">Very confident</label><br>
+          <label><input type="radio" name="s3q2" id="s3q2_4" value="4" class="option-input radio">Extremely confident</label><br>
+        </fieldset>
+        
+
+        <fieldset id="fieldset_post4" class="container_radio_buttons"><p>Did the explanation help you evaluate the AI's output?</p>
+            <label><input type="radio" name="s3q3" id="s3q3_0" value="0" class="option-input radio" required>Not at all</label><br>
+            <label><input type="radio" name="s3q3" id="s3q3_1" value="1" class="option-input radio">Slightly</label><br>
+            <label><input type="radio" name="s3q3" id="s3q3_2" value="2" class="option-input radio">Moderately</label><br>
+            <label><input type="radio" name="s3q3" id="s3q3_3" value="3" class="option-input radio">Strongly</label><br>
+            <label><input type="radio" name="s3q3" id="s3q3_4" value="4" class="option-input radio">Completely</label><br>
+        </fieldset>
+
+        <fieldset id="fieldset_post5" class="container_radio_buttons"><p>How useful was the explanation provided?</p>
+            <label><input type="radio" name="s3q4" id="s3q4_0" value="0" class="option-input radio" required>Not useful</label><br>
+            <label><input type="radio" name="s3q4" id="s3q4_1" value="1" class="option-input radio">Slightly useful</label><br>
+            <label><input type="radio" name="s3q4" id="s3q4_2" value="2" class="option-input radio">Moderately useful</label><br>
+            <label><input type="radio" name="s3q4" id="s3q4_3" value="3" class="option-input radio">Strongly useful</label><br>
+            <label><input type="radio" name="s3q4" id="s3q4_4" value="4" class="option-input radio">Completely useful</label><br>
+        </fieldset>
+
+        <fieldset id="fieldset_post6" class="container_radio_buttons"><p>How easy was it to understand the explanation?</p>
+            <label><input type="radio" name="s3q5" id="s3q5_0" value="0" class="option-input radio" required>Very difficult</label><br>
+            <label><input type="radio" name="s3q5" id="s3q5_1" value="1" class="option-input radio">Somewhat difficult</label><br>
+            <label><input type="radio" name="s3q5" id="s3q5_2" value="2" class="option-input radio">Neutral</label><br>
+            <label><input type="radio" name="s3q5" id="s3q5_3" value="3" class="option-input radio">Easy</label><br>
+            <label><input type="radio" name="s3q5" id="s3q5_4" value="4" class="option-input radio">Very easy</label><br>
+        </fieldset>
       </div>
 
       <div class="next-button-container">
@@ -294,7 +150,18 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div id="reason" class="box" style="display:none;">
       <fieldset id="fieldset_reason" class="container_radio_buttons" style="border: none;"><p>What made you change your decision?</p>
-          <label><textarea id="reason_que" name="reason_que" style="height: 125px;width: 100%;"></textarea></label>
+          <label><textarea id="reason_que" name="reason_que" style="height: 125px;width: 100%;" required></textarea></label>
+      </fieldset>
+    </div>
+    <br>
+
+    <div id="question-block3" style="display: none;">
+      <fieldset id="fieldset_post7" class="container_radio_buttons"><p>How much effort did it take to understand and complete this task?</p>
+        <label><input type="radio" name="s3q6" id="s3q6_0" value="0" class="option-input radio" required>None</label><br>
+        <label><input type="radio" name="s3q6" id="s3q6_1" value="1" class="option-input radio">Low</label><br>
+        <label><input type="radio" name="s3q6" id="s3q6_2" value="2" class="option-input radio">Moderate</label><br>
+        <label><input type="radio" name="s3q6" id="s3q6_3" value="3" class="option-input radio">High</label><br>
+        <label><input type="radio" name="s3q6" id="s3q6_4" value="4" class="option-input radio">Extreme</label><br>
       </fieldset>
     </div>
 

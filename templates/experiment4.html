@@ -4,45 +4,10 @@
   <meta charset="UTF-8">
   <title>Task 4 - MAGIX Experiment</title>
   <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
+  <link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/magix.css')}}" />
   <script>
 
 document.addEventListener("DOMContentLoaded", function () {
-    const nextBtn = document.getElementById("next-button");
-    const nextBtnXAI = document.getElementById("next-button-reverify");
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        const confirmed = confirm("Are you sure you want to proceed?");
-        if (confirmed) {
-          document.getElementById("reverify").style.display = "block";
-
-            // Freeze the first section
-          const firstSection = document.getElementById("first-section");
-          firstSection.style.opacity = "0.5";  // visually fade
-          firstSection.style.pointerEvents = "none"; // prevent clicks
-          document.getElementById("next-button").style.display ="None";
-        }
-      });
-    }
-    if (nextBtnXAI) {
-      // if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
-          nextBtnXAI.addEventListener("click", function () {
-          const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
-          if (confirmed){
-            if(document.getElementById('user_response').value != document.getElementById('user_response_XAI').value){
-              document.getElementById("reason").style.display = "block";
-            }
-
-                // Freeze the first section
-              const firstSection = document.getElementById("reverify");
-              firstSection.style.opacity = "0.5";  // visually fade
-              firstSection.style.pointerEvents = "none"; // prevent clicks
-              document.getElementById("next-button-reverify").style.display ="None";
-              document.getElementById("done").style.display ="block";
-               
-          } 
-        });
-    }
     const story = document.getElementById("story");
     const toggleBtn = document.getElementById("toggle-button");
 
@@ -52,180 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-    	function logAnswer(answer) {
-        // Store response in hidden input so it's submitted with the form
-        document.getElementById('user_response').value = answer;
-        logData("task1 response " + answer);
-
-        // Highlight the selected button
-        const buttons = document.querySelectorAll('.response-button');
-        buttons.forEach(btn => btn.classList.remove('selected'));
-
-        const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
-        if (selectedBtn) {
-          selectedBtn.classList.add('selected');
-        }
-
-      }
-
-      function logAnswerwithXAI(answer) {
-        // Store response in hidden input so it's submitted with the form
-        document.getElementById('user_response_XAI').value = answer;
-        logData("task1 response after explanation" + answer);
-
-        // Highlight the selected button
-        const buttons = document.querySelectorAll('.response-button-verify');
-        buttons.forEach(btn => btn.classList.remove('selected'));
-
-        const selectedBtn = document.getElementById('btn-verify-' + answer.toLowerCase());
-        if (selectedBtn) {
-          selectedBtn.classList.add('selected');
-        }
-      }
-
-
-  </script>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        max-width: 1200px;
-        margin: 40px auto;
-        padding: 0 20px;
-        font-size: 20px;
-        line-height: 1.6;
-        color: #222;
-        font-size: 18px;
-      }
-  
-      h2, h3 {
-        color: #111;
-      }
-  
-      .box {
-        border: 1px solid #ccc;
-        border-radius: 6px;
-        padding: 20px 25px;
-        margin-top: 20px;
-      }
-  
-      .question {
-        font-weight: bold;
-        font-size: 1.1em;
-        margin-bottom: 10px;
-      }
-  
-      #ai_explanation{
-        color: #0056b3;
-        font-style: italic;
-      }
-  
-      .response-button {
-        padding: 10px 20px;
-        margin: 15px 10px 0 0;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 15px;
-        cursor: pointer;
-      }
-  
-      .response-button:hover {
-        background-color: #0056b3;
-      }
-
-      .response-button.selected {
-        border: 2px solid #333;
-        background-color: #004c9e;
-      }
-
-      .response-button-verify {
-        padding: 10px 20px;
-        margin: 15px 10px 0 0;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 15px;
-        cursor: pointer;
-      }
-  
-      .response-button-verify:hover {
-        background-color: #0056b3;
-      }
-
-      .response-button-verify.selected {
-        border: 2px solid #333;
-        background-color: #004c9e;
-      }
-  
-      .next-button-container {
-        text-align: right;
-        margin-top: 40px;
-      }
-  
-      .next-button {
-        padding: 10px 24px;
-        font-size: 16px;
-        background-color: #28a745;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-      }
-  
-      .next-button:hover {
-        background-color: #218838;
-      }
-  
-      .novel-section {
-        white-space: pre-wrap;
-        padding-top: 30px;
-        font-family: Georgia, serif;
-        font-size: 15px;
-        line-height: 1.75;
-      }
-  
-      input[type="hidden"] {
-        display: none;
-      }
-      #story {
-        max-height: 2.0em; /* Just enough for the first <li> */
-        overflow: hidden;
-        transition: max-height 0.5s ease;
-      }
-
-      #story.expanded {
-        max-height: 2000px; /* big enough to show full text */
-      }
-
-      #toggle-button {
-        margin-top: 10px;
-        display: inline-block;
-        cursor: pointer;
-        color: #007bff;
-        font-weight: bold;
-      }
-
-      ol {
-        line-height: 1.8;
-        font-family: Georgia, serif;
-        font-size: 18px;
-        padding-left: 20px;
-      }
-      textarea {
-        font-size: 18px;
-      }
-    </style>
+</script>
 </head>
 <body>
 <form action="dem_que" method="post" id="my-form">
-    <h2>Task 4</h2>
+    <h2>Scenario 4</h2>
 
     <div class="box">
       <p>You are looking for ideas for your next meal. You want something that is both gluten-free and vegetarian, but you’re not sure what to eat. An AI system suggests a possible meal based on your preferences. Your job is to review the AI’s suggestion and decide whether it fits your dietary needs.</p>
-      <p>Please read the recommendation and explanation carefully, then give your honest judgment.</p> 
-      
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
@@ -234,19 +33,33 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>Question:</strong> Help the user adjust their meal choice based on dietary restrictions.</p>
+      <p><strong>AI Prompt:</strong> Suggest a new meal— something that’s both gluten-free and vegetarian.</p>
 
-      <p><strong>AI Response:</strong> <em id="ai_answer">{{ai_answer | safe }}</em></p>
+      <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer | safe }}</em></p>
 
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response" id="user_response" value="">
 
+      <br>
+      <p><strong>Would you like to accept or reject the AI's recommendation?</strong></p>
       <div class="button-group">
         <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
 
         <button type="button" id="btn-accept" class="response-button" onclick="logAnswer('Accept')" >Accept</button>
         <button type="button" id="btn-reject" class="response-button" onclick="logAnswer('Reject')">Reject</button>
+      </div>
+
+      <br>
+      <div id="question-block1" style="display: none;">
+        <fieldset id="fieldset_post8" class="container_radio_buttons">
+          <p>How confident are you in the decision you made?</p>
+          <label><input type="radio" name="s4q1" id="s4q1_0" value="0" class="option-input radio" required>Not at all confident</label><br>
+          <label><input type="radio" name="s4q1" id="s4q1_1" value="1" class="option-input radio">Slightly confident</label><br>
+          <label><input type="radio" name="s4q1" id="s4q1_2" value="2" class="option-input radio">Somewhat confident</label><br>
+          <label><input type="radio" name="s4q1" id="s4q1_3" value="3" class="option-input radio">Very confident</label><br>
+          <label><input type="radio" name="s4q1" id="s4q1_4" value="4" class="option-input radio">Extremely confident</label><br>
+        </fieldset>
       </div>
 
       <div class="next-button-container">
@@ -256,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div id="reverify" class="box" style="display:none;">
 
-      <p>Below you'll find more details about the AI recommendation. Considering this new piece of information, do you accept or reject the AI recommendation?</p>
+      <p>Below you'll find more details about the AI recommendation.</p>
 
       <!-- {% if ai_explanation %} -->
       <p><strong>AI Explanation:</strong>
@@ -266,11 +79,50 @@ document.addEventListener("DOMContentLoaded", function () {
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_XAI" id="user_response_XAI" value="">
 
+      <br>
+      <p><strong>Considering this new piece of information, would you like to accept or reject the AI's recommendation?</strong></p>
       <div class="button-group">
         <!-- <p><strong>Your Judgement:</strong> Do you think the AI output is correct?</p> -->
 
         <button type="button" id="btn-verify-accept" class="response-button-verify" onclick="logAnswerwithXAI('Accept')" >Accept</button>
         <button type="button" id="btn-verify-reject" class="response-button-verify" onclick="logAnswerwithXAI('Reject')">Reject</button>
+      </div>
+
+      <br>
+      <div id="question-block2" style="display: none;">
+        <fieldset id="fieldset_post8" class="container_radio_buttons">
+          <p>How confident are you in the decision you made?</p>
+          <label><input type="radio" name="s4q2" id="s4q2_0" value="0" class="option-input radio" required>Not at all confident</label><br>
+          <label><input type="radio" name="s4q2" id="s4q2_1" value="1" class="option-input radio">Slightly confident</label><br>
+          <label><input type="radio" name="s4q2" id="s4q2_2" value="2" class="option-input radio">Somewhat confident</label><br>
+          <label><input type="radio" name="s4q2" id="s4q2_3" value="3" class="option-input radio">Very confident</label><br>
+          <label><input type="radio" name="s4q2" id="s4q2_4" value="4" class="option-input radio">Extremely confident</label><br>
+        </fieldset>
+        
+
+        <fieldset id="fieldset_post4" class="container_radio_buttons"><p>Did the explanation help you evaluate the AI's output?</p>
+            <label><input type="radio" name="s4q3" id="s4q3_0" value="0" class="option-input radio" required>Not at all</label><br>
+            <label><input type="radio" name="s4q3" id="s4q3_1" value="1" class="option-input radio">Slightly</label><br>
+            <label><input type="radio" name="s4q3" id="s4q3_2" value="2" class="option-input radio">Moderately</label><br>
+            <label><input type="radio" name="s4q3" id="s4q3_3" value="3" class="option-input radio">Strongly</label><br>
+            <label><input type="radio" name="s4q3" id="s4q3_4" value="4" class="option-input radio">Completely</label><br>
+        </fieldset>
+
+        <fieldset id="fieldset_post5" class="container_radio_buttons"><p>How useful was the explanation provided?</p>
+            <label><input type="radio" name="s4q4" id="s4q4_0" value="0" class="option-input radio" required>Not useful</label><br>
+            <label><input type="radio" name="s4q4" id="s4q4_1" value="1" class="option-input radio">Slightly useful</label><br>
+            <label><input type="radio" name="s4q4" id="s4q4_2" value="2" class="option-input radio">Moderately useful</label><br>
+            <label><input type="radio" name="s4q4" id="s4q4_3" value="3" class="option-input radio">Strongly useful</label><br>
+            <label><input type="radio" name="s4q4" id="s4q4_4" value="4" class="option-input radio">Completely useful</label><br>
+        </fieldset>
+
+        <fieldset id="fieldset_post6" class="container_radio_buttons"><p>How easy was it to understand the explanation?</p>
+            <label><input type="radio" name="s4q5" id="s4q5_0" value="0" class="option-input radio" required>Very difficult</label><br>
+            <label><input type="radio" name="s4q5" id="s4q5_1" value="1" class="option-input radio">Somewhat difficult</label><br>
+            <label><input type="radio" name="s4q5" id="s4q5_2" value="2" class="option-input radio">Neutral</label><br>
+            <label><input type="radio" name="s4q5" id="s4q5_3" value="3" class="option-input radio">Easy</label><br>
+            <label><input type="radio" name="s4q5" id="s4q5_4" value="4" class="option-input radio">Very easy</label><br>
+        </fieldset>
       </div>
 
       <div class="next-button-container">
@@ -281,9 +133,21 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div id="reason" class="box" style="display:none;">
       <fieldset id="fieldset_reason" class="container_radio_buttons" style="border: none;"><p>What made you change your decision?</p>
-          <label><textarea id="reason_que" name="reason_que" style="height: 125px;width: 100%;"></textarea></label>
+          <label><textarea id="reason_que" name="reason_que" style="height: 125px;width: 100%;" required></textarea></label>
       </fieldset>
     </div>
+    <br>
+
+    <div id="question-block3" style="display: none;">
+      <fieldset id="fieldset_post7" class="container_radio_buttons"><p>How much effort did it take to understand and complete this task?</p>
+        <label><input type="radio" name="s4q6" id="s4q6_0" value="0" class="option-input radio" required>None</label><br>
+        <label><input type="radio" name="s4q6" id="s4q6_1" value="1" class="option-input radio">Low</label><br>
+        <label><input type="radio" name="s4q6" id="s4q6_2" value="2" class="option-input radio">Moderate</label><br>
+        <label><input type="radio" name="s4q6" id="s4q6_3" value="3" class="option-input radio">High</label><br>
+        <label><input type="radio" name="s4q6" id="s4q6_4" value="4" class="option-input radio">Extreme</label><br>
+      </fieldset>
+    </div>
+
 
 
     <div id="done" class="next-button-container" style="display: none;">

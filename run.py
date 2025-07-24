@@ -36,64 +36,64 @@ experiment1_started['t1InCorrNoXAI'] = 0
 experiment1_concluded = Counter()
 experiment1_concluded['t1CorrMAGIX'] = 0
 experiment1_concluded['t1CorrNonMAGIX'] = 0
-experiment1_concluded['t1CorrNoXAI'] = 0
+# experiment1_concluded['t1CorrNoXAI'] = 0
 experiment1_concluded['t1InCorrMAGIX'] = 0
 experiment1_concluded['t1InCorrNonMAGIX'] = 0
-experiment1_concluded['t1InCorrNoXAI'] = 0
+# experiment1_concluded['t1InCorrNoXAI'] = 0
 
 # Counters of how many experiments have started
 experiment2_started = Counter()
 experiment2_started['t2CorrMAGIX'] = 0
 experiment2_started['t2CorrNonMAGIX'] = 0
-experiment2_started['t2CorrNoXAI'] = 0
+# experiment2_started['t2CorrNoXAI'] = 0
 experiment2_started['t2InCorrMAGIX'] = 0
 experiment2_started['t2InCorrNonMAGIX'] = 0
-experiment2_started['t2InCorrNoXAI'] = 0
+# experiment2_started['t2InCorrNoXAI'] = 0
 
 # Counters of how many experiments have concluded
 experiment2_concluded = Counter()
 experiment2_concluded['t2CorrMAGIX'] = 0
 experiment2_concluded['t2CorrNonMAGIX'] = 0
-experiment2_concluded['t2CorrNoXAI'] = 0
+# experiment2_concluded['t2CorrNoXAI'] = 0
 experiment2_concluded['t2InCorrMAGIX'] = 0
 experiment2_concluded['t2InCorrNonMAGIX'] = 0
-experiment2_concluded['t2InCorrNoXAI'] = 0
+# experiment2_concluded['t2InCorrNoXAI'] = 0
 
 # Counters of how many experiments have started
-experiment2_started = Counter()
-experiment2_started['t3CorrMAGIX'] = 0
-experiment2_started['t3CorrNonMAGIX'] = 0
-experiment2_started['t3CorrNoXAI'] = 0
-experiment2_started['t3InCorrMAGIX'] = 0
-experiment2_started['t3InCorrNonMAGIX'] = 0
-experiment2_started['t3InCorrNoXAI'] = 0
+experiment3_started = Counter()
+experiment3_started['t3CorrMAGIX'] = 0
+experiment3_started['t3CorrNonMAGIX'] = 0
+# experiment2_started['t3CorrNoXAI'] = 0
+experiment3_started['t3InCorrMAGIX'] = 0
+experiment3_started['t3InCorrNonMAGIX'] = 0
+# experiment2_started['t3InCorrNoXAI'] = 0
 
 # Counters of how many experiments have concluded
-experiment2_concluded = Counter()
-experiment2_concluded['t3CorrMAGIX'] = 0
-experiment2_concluded['t3CorrNonMAGIX'] = 0
-experiment2_concluded['t3CorrNoXAI'] = 0
-experiment2_concluded['t3InCorrMAGIX'] = 0
-experiment2_concluded['t3InCorrNonMAGIX'] = 0
-experiment2_concluded['t3InCorrNoXAI'] = 0
+experiment3_concluded = Counter()
+experiment3_concluded['t3CorrMAGIX'] = 0
+experiment3_concluded['t3CorrNonMAGIX'] = 0
+# experiment2_concluded['t3CorrNoXAI'] = 0
+experiment3_concluded['t3InCorrMAGIX'] = 0
+experiment3_concluded['t3InCorrNonMAGIX'] = 0
+# experiment2_concluded['t3InCorrNoXAI'] = 0
 
 # Counters of how many experiments have started
-experiment2_started = Counter()
-experiment2_started['t4CorrMAGIX'] = 0
-experiment2_started['t4CorrNonMAGIX'] = 0
-experiment2_started['t4CorrNoXAI'] = 0
-experiment2_started['t4InCorrMAGIX'] = 0
-experiment2_started['t4InCorrNonMAGIX'] = 0
-experiment2_started['t4InCorrNoXAI'] = 0
+experiment4_started = Counter()
+experiment4_started['t4CorrMAGIX'] = 0
+experiment4_started['t4CorrNonMAGIX'] = 0
+# experiment2_started['t4CorrNoXAI'] = 0
+experiment4_started['t4InCorrMAGIX'] = 0
+experiment4_started['t4InCorrNonMAGIX'] = 0
+# experiment2_started['t4InCorrNoXAI'] = 0
 
 # Counters of how many experiments have concluded
-experiment2_concluded = Counter()
-experiment2_concluded['t4CorrMAGIX'] = 0
-experiment2_concluded['t4CorrNonMAGIX'] = 0
-experiment2_concluded['t4CorrNoXAI'] = 0
-experiment2_concluded['t4InCorrMAGIX'] = 0
-experiment2_concluded['t4InCorrNonMAGIX'] = 0
-experiment2_concluded['t4InCorrNoXAI'] = 0
+experiment4_concluded = Counter()
+experiment4_concluded['t4CorrMAGIX'] = 0
+experiment4_concluded['t4CorrNonMAGIX'] = 0
+# experiment2_concluded['t4CorrNoXAI'] = 0
+experiment4_concluded['t4InCorrMAGIX'] = 0
+experiment4_concluded['t4InCorrNonMAGIX'] = 0
+# experiment2_concluded['t4InCorrNoXAI'] = 0
 
 # Creation of log file based on id name
 html_tags = ["<li", "<ul", "<a"]
@@ -139,12 +139,12 @@ def choose_experiment_task1():
         cr = 'task1_corr_MAGIX.json'
     elif to_assing.startswith('t1CorrNonMAGIX'):
         cr = 'task1_corr_NonMAGIX.json'
-    elif to_assing.startswith('t1CorrNoXAI'):
-        cr = 'task1_corr_noXAI.json'
+    # elif to_assing.startswith('t1CorrNoXAI'):
+    #     cr = 'task1_corr_noXAI.json'
     elif to_assing.startswith('t1InCorrMAGIX'):
         cr = 'task1_incorr_MAGIX.json'
-    elif to_assing.startswith('t1InCorrNoXAI'):
-        cr = 'task1_incorr_noXAI.json'
+    # elif to_assing.startswith('t1InCorrNoXAI'):
+    #     cr = 'task1_incorr_noXAI.json'
     else:
         cr = 'task1_incorr_NonMAGIX.json'
 
@@ -186,12 +186,12 @@ def choose_experiment_task2():
         cr = 'task2_corr_MAGIX.json'
     elif to_assing.startswith('t2CorrNonMAGIX'):
         cr = 'task2_corr_NonMAGIX.json'
-    elif to_assing.startswith('t2CorrNoXAI'):
-        cr = 'task2_corr_noXAI.json'
+    # elif to_assing.startswith('t2CorrNoXAI'):
+    #     cr = 'task2_corr_noXAI.json'
     elif to_assing.startswith('t2InCorrMAGIX'):
         cr = 'task2_incorr_MAGIX.json'
-    elif to_assing.startswith('t2InCorrNoXAI'):
-        cr = 'task2_incorr_noXAI.json'
+    # elif to_assing.startswith('t2InCorrNoXAI'):
+    #     cr = 'task2_incorr_noXAI.json'
     else:
         cr = 'task2_incorr_NonMAGIX.json'
 
@@ -207,12 +207,12 @@ def choose_experiment_task3():
     If we have more than one such case, we choose the one that has the least
     amount of started experiments.
     """
-    print(experiment1_concluded)
+    print(experiment3_concluded)
     min_val = experiment1_concluded.most_common()[-1][1] #least common experiment1_concluded
 
     mins = []
-    for k in experiment1_concluded:
-        if experiment1_concluded[k] == min_val:
+    for k in experiment3_concluded:
+        if experiment3_concluded[k] == min_val:
             mins.append(k)
 
     if len(mins) > 1:
@@ -222,8 +222,8 @@ def choose_experiment_task3():
         min_val = sys.maxsize
         to_assing = ''
         for k in mins:
-            if experiment1_started[k] < min_val:
-                min_val = experiment1_started[k]
+            if experiment3_started[k] < min_val:
+                min_val = experiment3_started[k]
                 to_assing = k
     else:
         to_assing = mins[0]
@@ -234,16 +234,16 @@ def choose_experiment_task3():
         cr = 'task3_corr_MAGIX.json'
     elif to_assing.startswith('t3CorrNonMAGIX'):
         cr = 'task3_corr_NonMAGIX.json'
-    elif to_assing.startswith('t3CorrNoXAI'):
-        cr = 'task3_corr_noXAI.json'
+    # elif to_assing.startswith('t3CorrNoXAI'):
+    #     cr = 'task3_corr_noXAI.json'
     elif to_assing.startswith('t3InCorrMAGIX'):
         cr = 'task3_incorr_MAGIX.json'
-    elif to_assing.startswith('t3InCorrNoXAI'):
-        cr = 'task3_incorr_noXAI.json'
+    # elif to_assing.startswith('t3InCorrNoXAI'):
+    #     cr = 'task3_incorr_noXAI.json'
     else:
         cr = 'task3_incorr_NonMAGIX.json'
 
-    experiment1_started[to_assing] += 1
+    experiment3_started[to_assing] += 1
     print("cr " + cr)
     return cr
 
@@ -255,12 +255,12 @@ def choose_experiment_task4():
     If we have more than one such case, we choose the one that has the least
     amount of started experiments.
     """
-    print(experiment1_concluded)
-    min_val = experiment1_concluded.most_common()[-1][1] #least common experiment1_concluded
+    print(experiment4_concluded)
+    min_val = experiment4_concluded.most_common()[-1][1] #least common experiment4_concluded
 
     mins = []
-    for k in experiment1_concluded:
-        if experiment1_concluded[k] == min_val:
+    for k in experiment4_concluded:
+        if experiment4_concluded[k] == min_val:
             mins.append(k)
 
     if len(mins) > 1:
@@ -270,8 +270,8 @@ def choose_experiment_task4():
         min_val = sys.maxsize
         to_assing = ''
         for k in mins:
-            if experiment1_started[k] < min_val:
-                min_val = experiment1_started[k]
+            if experiment4_started[k] < min_val:
+                min_val = experiment4_started[k]
                 to_assing = k
     else:
         to_assing = mins[0]
@@ -282,16 +282,16 @@ def choose_experiment_task4():
         cr = 'task4_corr_MAGIX.json'
     elif to_assing.startswith('t4CorrNonMAGIX'):
         cr = 'task4_corr_NonMAGIX.json'
-    elif to_assing.startswith('t4CorrNoXAI'):
-        cr = 'task4_corr_noXAI.json'
+    # elif to_assing.startswith('t4CorrNoXAI'):
+    #     cr = 'task4_corr_noXAI.json'
     elif to_assing.startswith('t4InCorrMAGIX'):
         cr = 'task4_incorr_MAGIX.json'
-    elif to_assing.startswith('t4InCorrNoXAI'):
-        cr = 'task4_incorr_noXAI.json'
+    # elif to_assing.startswith('t4InCorrNoXAI'):
+    #     cr = 'task4_incorr_noXAI.json'
     else:
         cr = 'task4_incorr_NonMAGIX.json'
 
-    experiment1_started[to_assing] += 1
+    experiment4_started[to_assing] += 1
     print("cr " + cr)
     return cr
 

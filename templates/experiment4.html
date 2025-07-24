@@ -95,11 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 </head>
 <body>
-<form action="dem_que" method="post" id="my-form">
+<form action="dem_que" method="post" id="exp4-form">
     <h2>Scenario 4</h2>
 
     <div class="box">
-      <p>You are looking for ideas for your next meal. You want something that is both gluten-free and vegetarian, but you’re not sure what to eat. An AI system suggests a possible meal based on your preferences. Your job is to review the AI’s suggestion and decide whether it fits your dietary needs.</p>
+      <p>You are looking for ideas for a meal to serve your friends. You want something that is both gluten-free and vegetarian, but you’re not sure what to prepare. An AI system suggests a possible dish based on these preferences. Your job is to review the AI’s recommendation and decide whether it fits your group’s dietary needs.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <p>Below you'll find more details about the AI recommendation.</p>
 
       <!-- {% if ai_explanation %} -->
-      <p><strong>AI Explanation:</strong>
+      <p><strong>Explanation of AI rationale:</strong>
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
       <!-- {% endif %}  -->
 

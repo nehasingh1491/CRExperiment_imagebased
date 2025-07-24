@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
-        const response = document.getElementById('user_response').value;
+        const response = document.getElementById('user_response_2').value;
 
         if (!response) {
           alert("Please accept or reject the AI recommendation before proceeding.");
@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     if (nextBtnXAI) {
-      // if(document.getElementById('user_response').value == document.getElementById('user_response_XAI').value){
+      // if(document.getElementById('user_response_2').value == document.getElementById('user_response_2_XAI').value){
           nextBtnXAI.addEventListener("click", function () {
-            const response = document.getElementById('user_response_XAI').value;
+            const response = document.getElementById('user_response_2_XAI').value;
 
             if (!response) {
             alert("Please accept or reject the AI recommendation before proceeding.");
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
             if (confirmed){
-                if(document.getElementById('user_response').value != document.getElementById('user_response_XAI').value){
+                if(document.getElementById('user_response_2').value != document.getElementById('user_response_2_XAI').value){
                   document.getElementById("reason").style.display = "block";
                 }
                 else{
@@ -92,6 +92,38 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  function logAnswer(answer) {
+    // Store response in hidden input so it's submitted with the form
+    document.getElementById('user_response_2').value = answer;
+    logData("task1 response " + answer);
+
+    // Highlight the selected button
+    const buttons = document.querySelectorAll('.response-button');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+
+    const selectedBtn = document.getElementById('btn-' + answer.toLowerCase());
+    if (selectedBtn) {
+      selectedBtn.classList.add('selected');
+    }
+    document.getElementById("question-block1").style.display="block";
+  }
+
+  function logAnswerwithXAI(answer) {
+    // Store response in hidden input so it's submitted with the form
+    document.getElementById('user_response_2_XAI').value = answer;
+    logData("task1 response after explanation" + answer);
+
+    // Highlight the selected button
+    const buttons = document.querySelectorAll('.response-button-verify');
+    buttons.forEach(btn => btn.classList.remove('selected'));
+
+    const selectedBtn = document.getElementById('btn-verify-' + answer.toLowerCase());
+    if (selectedBtn) {
+      selectedBtn.classList.add('selected');
+    }
+    document.getElementById("question-block2").style.display="block";
+  }
+
 </script>
 
 </head>
@@ -117,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       <!-- Hidden field to store the user's response -->
-      <input type="hidden" name="user_response" id="user_response" value="">
+      <input type="hidden" name="user_response_2" id="user_response_2" value="">
 
       <br>
       <p><strong>Would you like to accept or reject the AI's recommendation?</strong></p>
@@ -155,7 +187,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <!-- {% endif %}  -->
 
       <!-- Hidden field to store the user's response -->
-      <input type="hidden" name="user_response_XAI" id="user_response_XAI" value="">
+      <input type="hidden" name="user_response_2_XAI" id="user_response_2_XAI" value="">
 
       <br>
       <p><strong>Considering this new piece of information, would you like to accept or reject the AI's recommendation?</strong></p>

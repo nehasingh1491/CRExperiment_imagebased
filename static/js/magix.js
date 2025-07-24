@@ -7,14 +7,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
   form.addEventListener("submit", function () {
     if (checkbox.checked) {
-      logData("Consent checkbox: Checked");
+      logData("Consent checkbox: ", checked);
     } else {
-      logData("Consent checkbox: Not checked");
+      logData("Consent checkbox: ", not_checked);
     }
   });
 });
-
-
 
 function logAnswer(answer) {
     // Store response in hidden input so it's submitted with the form

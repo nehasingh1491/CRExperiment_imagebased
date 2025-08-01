@@ -40,29 +40,29 @@ experiment1_concluded['t1InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have started
 experiment2_started = Counter()
-experiment2_started['t2CorrMAGIX'] = 0
-# experiment2_started['t2CorrNonMAGIX'] = 0
+# experiment2_started['t2CorrMAGIX'] = 0
+experiment2_started['t2CorrNonMAGIX'] = 0
 # experiment2_started['t2InCorrMAGIX'] = 0
 # experiment2_started['t2InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have concluded
 experiment2_concluded = Counter()
-experiment2_concluded['t2CorrMAGIX'] = 0
-# experiment2_concluded['t2CorrNonMAGIX'] = 0
+# experiment2_concluded['t2CorrMAGIX'] = 0
+experiment2_concluded['t2CorrNonMAGIX'] = 0
 # experiment2_concluded['t2InCorrMAGIX'] = 0
 # experiment2_concluded['t2InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have started
 experiment3_started = Counter()
-# experiment3_started['t3CorrMAGIX'] = 0
-experiment3_started['t3CorrNonMAGIX'] = 0
+experiment3_started['t3CorrMAGIX'] = 0
+# experiment3_started['t3CorrNonMAGIX'] = 0
 # experiment3_started['t3InCorrMAGIX'] = 0
 # experiment3_started['t3InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have concluded
 experiment3_concluded = Counter()
-# experiment3_concluded['t3CorrMAGIX'] = 0
-experiment3_concluded['t3CorrNonMAGIX'] = 0
+experiment3_concluded['t3CorrMAGIX'] = 0
+# experiment3_concluded['t3CorrNonMAGIX'] = 0
 # experiment3_concluded['t3InCorrMAGIX'] = 0
 # experiment3_concluded['t3InCorrNonMAGIX'] = 0
 

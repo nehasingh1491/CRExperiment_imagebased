@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "../Data_scraping"
+		},
+		{
+			"path": "../repo_Francesco/CRExperiment"
 		}
 	],
 	"settings": {}

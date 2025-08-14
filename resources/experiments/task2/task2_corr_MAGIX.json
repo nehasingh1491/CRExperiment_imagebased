@@ -1,5 +1,6 @@
 {
     "ai_answer": "<p>Top recommendation: Nice, France</p><p>Alternates (in order): Mallorca (Spain), Palermo (Italy)</p>",
-    "ai_explanation": "<p>To explain how the AI made that decision we looked for past answers to questions close to yours:</p><ul><li><strong>Case #1</strong> (\u201cWhere can I go for a relaxing seaside break within 5 hours travel from Vienna? I live in Austria.\u201d): In that earlier interaction, the AI returned <em>[Nice, Mallorca, Barcelona]</em>.</li><li><strong>Case #2</strong> (\u201cI\u2019m based in Zurich and want a laid-back beach vacation without a long flight. Any suggestions?\u201d): Here, the AI answered <em>[Mallorca, Nice, Palermo]</em>.</li></ul>"    
+    "ai_explanation": "<section class=\"cases\">\n  <h3>Similar Past Queries</h3>\n  <p>Here are past user queries that received successful answers and were similar to yours:</p>\n  <ol>\n    <li>\n      <p><strong>Case #1</strong> (<em>&ldquo;Where can I go for a relaxing seaside break within 2–3 hours of travel from Berlin’s airport? I live in the Berlin area, close to Potsdam&rdquo;</em>):</p>\n      <p>In that earlier interaction, the AI returned <strong>[Mallorca, Nice, Costa Brava]</strong>.</p>\n    </li>\n    <li>\n      <p><strong>Case #2</strong> (<em>&ldquo;I’m based in Berlin and want a laid-back beach vacation without a long flight. Any suggestions?&rdquo;</em>):</p>\n      <p>Returned <strong>[Nice, Palermo, Mallorca]</strong>.</p>\n    </li>\n  </ol>\n</section>"
 }
+      
   

@@ -584,12 +584,14 @@ def task4():
                 try:
                     data = json.loads(content)
                     ai_explanation = data.get('ai_explanation')
+                    ai_explanation_1 = data.get('ai_explanation_1')
                 except json.JSONDecodeError as e:
                     raise ValueError(f"Invalid JSON in file: {json_path}\n{str(e)}")
 
                 resp = make_response(render_template('experiment4.html',
                                     ai_answer=data['ai_answer'],
-                                    ai_explanation=ai_explanation, image=data['image']))
+                                    ai_explanation=ai_explanation,
+                                    ai_explanation_1=ai_explanation_1,  image=data['image']))
                 resp.set_cookie('experiment-experimentCRtype', cr_file)
                 return resp
     else:

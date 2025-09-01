@@ -1,5 +1,6 @@
 {
   "ai_answer": "No",  
-  "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want to compare one continent to another. Does this map preserve area, shape, and angles?\"</p>\n  <p>• Correct Answer: No.</p>\n</section>",
+  "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want to compare one continent to another. Does this map preserve area, shape, and angles?\"</p>\n  </section>",
+  "ai_explanation_1": "<section>\n  <p>• Correct Answer: No.</p>\n</section>",
   "image": "/static/images/task4/task4_incorr_NonMAGIX.png"
 }

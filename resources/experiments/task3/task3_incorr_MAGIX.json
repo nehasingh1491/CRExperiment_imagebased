@@ -1,5 +1,5 @@
 {
-  "ai_answer": "Yes, the second monkey from the left on the bottom is a hamadryas baboon.",
-  "ai_explanation": "<section>\n  <p><strong>Hamadryas baboon:</strong><br>\n  • The hamadryas baboon is at the second monkey from the left on the bottom because it has: four legs, a tail, a head, two eyes, quadrupedal stance.</p>\n</section>",
+  "ai_answer": "Yes, the second monkey from the left on the bottom row is a hamadryas baboon.",
+  "ai_explanation": "<section>\n  <p>The hamadryas baboon is at the second monkey from the left on the bottom row because it has: four legs, a tail, a head, two eyes, quadrupedal stance. </p>\n</section>",
   "image": "/static/images/task3/task3_incorr_MAGIX.jpg"
 }

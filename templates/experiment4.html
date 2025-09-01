@@ -131,14 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Scenario 4</h2>
 
     <div class="box">
-      <p>Understand whether a given map can be safely used to compare the sizes of continents.</p>
-      <p>The AI has access to a trusted online cartography resources, along with related information on map properties, which it can use to provide the right answer.</p>
+      <p>I wanna see the true size of continents. Does this world projection map preserve area and size?</p>
+      <p>The AI has access to a vast database of cartography resources and related information and it could help you answering the question.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
 
       <div style="text-align: center;">
-        <img src="/static/images/task4/task4.jpg" style="max-width:80%; height:auto;">
+        <img src="/static/images/task4/task4.png" style="max-width:80%; height:auto;">
       </div>
     </div>
   
@@ -183,12 +183,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <p>Below you'll find more details about the AI recommendation.</p>
 
+      {% if ai_explanation %} 
+      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+      {% endif %} 
+
       <div style="text-align: center;">
         <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
       </div>
 
-      {% if ai_explanation %} 
-      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+      {% if ai_explanation_1 %} 
+      <em id="ai_explanation">{{ai_explanation_1 | safe }}</em></p>
       {% endif %} 
 
       <!-- Hidden field to store the user's response -->

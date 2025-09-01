@@ -1,5 +1,6 @@
 {
     "ai_answer": "Yes",  
-    "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want a visualization that doesn’t inflate or shrink continents. Is this map using an area-preserving method?\" </p>\n  <p>• Correct Answer: Yes.</p>\n  <p>• Justification: The image provided in input is an Albers projection. The Albers projection preserves area, so continents keep their true size. Distortion is minimal between the chosen latitude lines, but near the pole Antarctica looks stretched east–west and squashed north–south, creating the illusion it’s “too big” even though area is mathematically correct.</p>\n</section>",
+    "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want a visualization that doesn’t inflate or shrink continents. Is this map using an area-preserving method?\" </p>\n  </section>",
+    "ai_explanation_1": "<section><p>• Correct Answer: Yes.</p>\n  <p>• Justification: The image provided in input is an Albers projection. The Albers projection preserves area, so continents keep their true size. Distortion is minimal between the chosen latitude lines, but near the pole Antarctica looks stretched east–west and squashed north–south, creating the illusion it’s “too big” even though area is mathematically correct.</p>\n</section>",
     "image": "/static/images/task4/task4_corr_MAGIX.png"
 }

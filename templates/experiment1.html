@@ -124,8 +124,8 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Scenario 1</h2>
 
     <div class="box">
-      <p>Answer a given question on an image. </p>
-      <p>Since the image is very cluttered, you have access to an AI system which can help you with sifting through it, answering the question. Below you’ll find an answer found by the AI system. Please verify whether it’s correct or not.</p>
+      <p>Where are the tennis items (bag, balls, racket, shoes, visor) that Mary is looking for? </p>
+      <p>Since the image is very cluttered, you have access to an AI system which can help you with sifting through it, answering the question. Below you’ll find an answer found by the AI system. Please verify whether it’s correct or not. <i>(Please do not spend more than 20–30 seconds searching for the objects before making your decision.)</i></p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
@@ -178,14 +178,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       <p><strong>Explanation of AI rationale:</strong>
+
+        {% if ai_explanation %} 
+        <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
+        {% endif %} 
       
       <div style="text-align: center;">
         <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
       </div>
-      
-      {% if ai_explanation %} 
-      <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
-      {% endif %} 
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_1_XAI" id="user_response_1_XAI" value="">

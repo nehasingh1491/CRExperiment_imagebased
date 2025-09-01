@@ -1,5 +1,5 @@
 {
-    "ai_answer": "Yes, the left-centre monkey is a hamadryas baboon.",  
-    "ai_explanation": "<section>\n  <p><strong>Hamadryas baboon:</strong><br>\n  • The hamadryas baboon is at the left-centre monkey because it has: light grey body, grey mane around head, quadrupedal stance, elongated snout.</p>\n</section>",
+    "ai_answer": "Yes, the rightmost monkey in the middle row is a hamadryas baboon.",  
+    "ai_explanation": "<section>\n  <p>The hamadryas baboon is the rightmost monkey in the middle row because it has: light grey body, grey mane around head, quadrupedal stance, elongated snout.</p></section>",
     "image": "/static/images/task3/task3_corr_MAGIX.jpg"
 }

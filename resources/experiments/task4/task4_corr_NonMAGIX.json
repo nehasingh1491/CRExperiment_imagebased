@@ -1,5 +1,6 @@
 {
   "ai_answer": "Yes",  
-  "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want a visualization that doesn’t inflate or shrink continents. Is this map using an area-preserving method?\" </p>\n  <p>• Correct Answer: Yes.</p>\n</section>",
+  "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want a visualization that doesn’t inflate or shrink continents. Is this map using an area-preserving method?\" </p>\n  </section>",
+  "ai_explanation_1": "<section>\n  <p>• Correct Answer: Yes.</p>\n</section>",
   "image": "/static/images/task4/task4_corr_NonMAGIX.png"
 }

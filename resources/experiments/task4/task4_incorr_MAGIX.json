@@ -1,5 +1,6 @@
 {
     "ai_answer": "No",  
-    "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want to compare one continent to another. Does this map preserve area, shape, and angles?\"</p>\n  <p>• Correct Answer: No.</p>\n  <p>• Justification: The image provided in input is an Albers projection. The Albers projection preserves area, so continents keep their true size. However shapes are distorted. For example, near the pole Antarctica is stretched east–west and squashed north–south, losing its original shape.</p>\n</section>",
+    "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want to compare one continent to another. Does this map preserve area, shape, and angles?\"</p>\n  </section>",
+    "ai_explanation_1": "<section>\n  <p>• Correct Answer: No.</p>\n  <p>• Justification: The image provided in input is an Albers projection. The Albers projection preserves area, so continents keep their true size. However shapes are distorted. For example, near the pole Antarctica is stretched east–west and squashed north–south, losing its original shape.</p>\n</section>",
     "image": "/static/images/task3/task3_incorr_MAGIX.png"
 }

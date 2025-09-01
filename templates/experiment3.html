@@ -133,7 +133,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Scenario 3</h2>
 
     <div class="box">
-      <p>Analyse a figure and determine whether a specific specimen of monkey is present.</p>
+      <p>Does this image contain a hamadryas baboon monkey? (DON’T GOOGLE IT!!)</p>
       <p>The AI has access to a trusted database of monkeys, along with related information on species identification, which it can use to support accurate identification and verification.</p>
 
       <!-- Honeypot field (hidden from users) -->
@@ -147,7 +147,7 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>AI Prompt:</strong> Does this image contain a hamadryas baboon monkey? (DON’T GOOGLE IT!!)</p>
+      <p><strong>AI Prompt:</strong> Does this image contain a hamadryas baboon monkey?</p>
 
       <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
@@ -185,13 +185,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <p>Below you'll find more details about the AI recommendation.</p>
 
-      <div style="text-align: center;">
-        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
-      </div>
-
       {% if ai_explanation %} 
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
       {% endif %} 
+
+      <div style="text-align: center;">
+        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
+      </div>
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_3_XAI" id="user_response_3_XAI" value="">

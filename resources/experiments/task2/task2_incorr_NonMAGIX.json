@@ -1,5 +1,6 @@
 {
-  "ai_answer": "<p>Top recommendation: Sharm El Sheikh, Egypt</p><p>Alternates (in order): Azores (Portugal), Zanzibar (Tanzania)</p>",
-  "ai_explanation": "<section class=\"rule-based-explanation\">\n  <p>The AI ranks destinations using a decision rule combining relaxation and travel time:</p>\n  <p><strong>Score = 99% relaxation + 1% travel time</strong></p>\n  <h4>Decision process:</h4>\n  <ul>\n    <li>Each location has a relaxation rating (0–1) and a flight travel time from Berlin.</li>\n    <li>The formula weights relaxation at 99% and travel time at 1% (capped at 6 hours).</li>\n    <li>The destination with the highest score is selected.</li>\n  </ul>\n  <h4>Outcome:</h4>\n  <p><strong>Sharm El Sheikh</strong> scores ~0.98 (0.98 relaxation, 0 travel time), with high relaxation and an 8-hour flight from Berlin.</p>\n  <p><strong>The Azores</strong> or <strong>Zanzibar</strong> score ~0.9, so Sharm El Sheikh is preferred.</p>\n</section>"
+  "ai_answer": "<p>It’s a “4” </p>",
+  "ai_explanation": "<section>\n  <p>Here are past input digits that were correctly labeled and are similar to yours:</p>\n  <p>• Left: An open-top 4 — diagonal meets a vertical stem with a mid crossbar, leaving an open counter at the top.</p>\n  <p>• Middle: Same open-top pattern: clear crossbar crossing the stem with the diagonal “leg” anchoring it — the typical three-stroke structure of a handwritten 4.</p>\n  <p>• Right: A closed-top 4 — the diagonal and bar form a triangular, closed counter at the top, alongside the right stem.</p>\n</section>",
+  "image": "/static/images/task2/task2_incorr_NonMAGIX.png"
 }
   

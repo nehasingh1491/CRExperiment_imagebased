@@ -1,7 +1,5 @@
 {
-    "ai_answer": "The article falsely claims that the Moon’s brightness is increasing due to solar activity and secret lunar mining, leading to ecological disruption, insomnia, and even astrological imbalances. It fabricates a 12% albedo rise, unverified insomnia statistics, and suggests a nonexistent UN “Moonlight Treaty.” Additionally, it promotes baseless conspiracy theories involving surveillance and pharmaceutical manipulation, all without credible scientific evidence.",  
-    "ai_explanation": "<p>The AI breaks the article into individual claims and checks each against trusted sources. For each claim, it computes an evidence score (E) using source relevance and authority. Claims with E ≥ 0.7 are marked as true; others are flagged as false.</p><p><strong>Flagged as False (E &lt; 0.7):</strong></p><ul><li>12% Moon brightness rise: E ≈ 0.24 &lt; 0.7 → no authoritative source found</li><li>17% global insomnia spike from moonlight: E ≈ 0.18 &lt; 0.7 → no authoritative source found</li><li>UN passed a ‘Moonlight Treaty’: E = 0 &lt; 0.7 → no authoritative source found</li></ul>"
+    "ai_answer": "Yes, the left-centre monkey is a hamadryas baboon.",  
+    "ai_explanation": "<section>\n  <p><strong>Hamadryas baboon:</strong><br>\n  • The hamadryas baboon is at the left-centre monkey because it has: light grey body, grey mane around head, quadrupedal stance, elongated snout.</p>\n</section>",
+    "image": "/static/images/task3/task3_corr_MAGIX.jpg"
 }
-  
-    
-  

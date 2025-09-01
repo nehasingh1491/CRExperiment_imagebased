@@ -9,7 +9,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   const nextBtn = document.getElementById("next-button");
-    const nextBtnXAI = document.getElementById("next-button-reverify");
+  const nextBtnXAI = document.getElementById("next-button-reverify");
 
     function isRadioGroupAnswered(name) {
       const radios = document.getElementsByName(name);
@@ -84,12 +84,6 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     const story = document.getElementById("story");
-    const toggleBtn = document.getElementById("toggle-button");
-
-    toggleBtn.addEventListener("click", function () {
-      story.classList.toggle("expanded");
-      toggleBtn.textContent = story.classList.contains("expanded") ? "Show less ▲" : "Show more ▼";
-    });
   });
 
   function logAnswer(answer) {
@@ -130,32 +124,21 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Scenario 1</h2>
 
     <div class="box">
-      <p>You are asked to verify an answer to a question based on excerpts from a newly generated novel. Since the excerpts are long, an AI system has provided its answer to assist you. Your task is to accept or reject the AI’s recommendation.</p>
+      <p>Answer a given question on an image. </p>
+      <p>Since the image is very cluttered, you have access to an AI system which can help you with sifting through it, answering the question. Below you’ll find an answer found by the AI system. Please verify whether it’s correct or not.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
 
-      <h3>Novel Excerpts:</h3>
-      <ol id="story">
-        <li>In the mossy heart of the swamp lived a toad named Brom. Each morning, he perched on his favorite lily pad, gazing at the dappling sunbeams and dreaming of adventures beyond the reeds. Though other creatures stared, Brom’s thoughts drifted to a delicate visitor who flitted through the dawn mist.</li>
-        <li>That visitor was no ordinary mosquito. She hovered with a gentle hum, her wings casting tiny rainbows. Brom’s heart fluttered as he watched her dance among the cattails. He croaked shy greetings, startling the insects but enchanting her.</li>
-        <li>Days passed in a rhythm of stolen glances and soft buzzes. Brom brought her dewdrops balanced on grass blades, and she sipped them with dainty pleasure. Dragonflies whispered that Brom was in love—an absurd notion, they scoffed, for no toad could wed a mosquito.</li>
-        <li>One moonlit night, Brom summoned his courage and invited her to the oldest willow branch. Wings trembling, she agreed. Under silver light and among fireflies, he vowed to always love and protect her. She answered with a rippling hum—a promise in song.</li>
-        <li>Preparations began at once. Frogs rehearsed choruses; water beetles polished the pond’s mirror; snails offered their slow wisdom on marriage. The swamp buzzed in anticipation—never before had a toad wed a mosquito.</li>
-        <li>As the day dawned, Brom slipped away at first light to gather special gifts: a crown of waterlily petals and a necklace strung from spider-silk pearls. He arranged them on a smooth stone altar beneath the willow, his webbed fingers trembling with hope.</li>
-        <li>Meanwhile, the swamp stirred in celebration. Crickets tuned their legs for a lullaby; fireflies rehearsed flickering patterns in the reeds; even the wind hummed through the cattails as if carrying a wedding march. Excitement rippled through every leaf and ripple of water.</li>
-        <li>On the wedding day, Brom wore a simple reed wreath; the mosquito a veil of glistening dew. As they reached the altar, a sinister hiss cut through the air. Serpentus, the evil snake wizard, emerged and spoke ancient words. In a swirl of emerald mist, the mosquito froze—and became a mushroom at Brom’s feet, halting the ceremony.</li>
-        <li>When the mist lifted, a humble mushroom with a star-speckled cap trembled on the willow branch. Guests gasped; Brom’s heart sank. He realized his bride had never been an insect but a magical fungi.</li>
-        <li>For a long silence, Brom stared at the tiny mushroom. Gently, he cradled it and understood: love is more than shape or song—it’s the spark that drew him to her true self. Despite dark magic and unexpected change, he spoke his final vow: to marry the mushroom he thought was a mosquito, for his heart knew her always. And so they lived on the forest floor—one toad, one mushroom—bound by the purest magic of love.</li>
-      </ol>
-      
-      <div id="toggle-button">Show more ▼</div>
+      <div style="text-align: center;">
+        <img src="/static/images/task1/task1.jpg" style="max-width:80%; height:auto;">
+      </div>
     </div>
   
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>AI Prompt:</strong> What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p>
+      <p><strong>AI Prompt:</strong> Where are the tennis items (bag, balls, racket, shoes, visor) that Mary is looking for?</p>
 
       <p><strong>AI's Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
@@ -193,10 +176,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <p>Below you'll find more details about the AI recommendation.</p>
 
-      <!-- {% if ai_explanation %} -->
+
       <p><strong>Explanation of AI rationale:</strong>
+      
+      <div style="text-align: center;">
+        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
+      </div>
+      
+      {% if ai_explanation %} 
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
-      <!-- {% endif %}  -->
+      {% endif %} 
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_1_XAI" id="user_response_1_XAI" value="">

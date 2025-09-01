@@ -1,0 +1,6 @@
+{
+  "ai_answer": "<p>It’s a “field 田” </p>",
+  "ai_explanation": "<section>\n  <p>Here are past input digits that were correctly labeled and are similar to yours:</p>\n  <p>• Left: Skewed but still a boxed enclosure with an off-center cross; all four compartments remain legible despite the diagonal slant. The left wall bows slightly and the corners close cleanly; the inner vertical runs nearly top-to-bottom with a faint curve, and the horizontal reaches both sides. No tail above the box (so not 由), just stroke thickening from quick writing.</p>\n  <p>• Middle: The canonical 田: nearly square outer frame, clear vertical and horizontal split, producing balanced 2×2 panes with closed corners. Proportions are regular, edges are straight, and there’s no open top or dangling stroke.</p>\n  <p>• Right: Compact, ink-heavy rendering: the outer box is tight and the vertical midline is strong; the inner horizontal is lighter but runs through the center, yielding four shallow cells.</p>\n</section>",
+  "image": "/static/images/task2bis/task2bis_incorr_NonMAGIX.png"
+}
+  

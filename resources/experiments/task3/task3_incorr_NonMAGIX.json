@@ -1,6 +1,5 @@
 {
-  "ai_answer": "The viral article reports that the Moon’s brightness is increasing due to secret lunar mining and cosmic events, with serious ecological and psychological consequences. While the claim about a 17% rise in global insomnia linked to moonlight is clearly false, the rest of the article presents credible insights from scientists, conservationists, and even astrologers, showing a concerning trend that world leaders are rightly beginning to address through measures like the proposed Moonlight Treaty.",
-  "ai_explanation": "<p>To explain the AI's decision, we identified the closest fact-checks done in the past that mirror your case. Below is a list of the top analogues (one per claim):</p><p><strong>Claim:</strong> “17% global insomnia spike”<br><strong>Closest case:</strong> “Supermoon Insomnia Epidemic”; the AI marked this claim <em>False</em>.<br><strong>Justification:</strong> No 17% figure cited; insomnia depicted as psychological, not biological.</p><p><strong>Claim:</strong> “12% Moon brightness rise”<br><strong>Closest case:</strong> “Shadowkeep Grimoire – Albedo Spike”; the AI marked this claim <em>True</em>.<br><strong>Justification:</strong> The 12% increase matches in-universe readings from Shadowkeep, consistent with cosmic-era fictional storylines.</p><p><strong>Claim:</strong> “UN passed a ‘Moonlight Treaty’”<br><strong>Closest case:</strong> “Moonlight Accord” in Justice League United; the AI marked this claim <em>True</em>.<br><strong>Justification:</strong> Though fictional, the treaty was presented as a UN-like diplomatic measure.</p>"
+  "ai_answer": "Yes, the second monkey from the left on the bottom is a hamadryas baboon.",
+  "ai_explanation": "",
+  "image": "/static/images/task3/task3_incorr_NonMAGIX.jpg"
 }
-
-  

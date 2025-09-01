@@ -1,6 +1,7 @@
 {
-    "ai_answer": "A mushroom which was magically turned into a mosquito.",
-    "ai_explanation": "To explain how the AI made that decision we looked for past answers to questions close to yours:<ul><li><strong>Case #1</strong> (“What form did Brom’s bride take after Serpentus’s spell?”): In that earlier interaction, the AI confronted the identical excerpt and answered “a mushroom.”</li><li><strong>Case #2</strong> (“Did Brom end up marrying the mosquito or something else?”): Here too, the AI answered “the mushroom.”</li></ul>"
+    "ai_answer": "Centre: balls; Top-centre: racket and bag; Right-bottom: shoes; Left-bottom: visor.",
+    "ai_explanation": "<section>\n  <p><strong>Tennis Racket:</strong><br>\n  • The tennis racket is at the top-centre because there is an item with: handle, stringed surface, oval frame.</p>\n\n  <p><strong>Tennis Balls</strong><br>\n  • The tennis balls are at the centre because there is an item with: spherical shape, small size, bright yellow, seams.</p>\n\n  <p><strong>Tennis Shoes</strong><br>\n  • The tennis shoes are at the right-bottom because there is an item with: lace-up sneakers, reinforced sole, sporty silhouette.</p>\n\n  <p><strong>Hat / Visor</strong><br>\n  • The visor is at the left-bottom because there is an item with: open top, curved brim.</p>\n\n  <p><strong>Tennis Bag</strong><br>\n  • The tennis bag is at the centre because there is an item with: elongated soft bag, strap handles, fits rackets.</p>\n</section>",
+    "image": "/static/images/task1/task1_corr_NonMAGIX.jpg"
 }
   
   

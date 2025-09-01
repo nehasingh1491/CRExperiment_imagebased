@@ -1,6 +1,5 @@
 {
-  "ai_answer": "<p>Zucchini noodles with tomato basil sauce</p>",
-  "ai_explanation": "<p>The AI system followed these steps to generate its recommendation:</p><ol><li>Gather candidate recipes;</li><li>Tag ingredients (<strong>zucchini noodles</strong>: vegetable+gluten-free, <strong>basil</strong>: leafy, <strong>tomato sauce</strong>: vegetable base);</li><li>Drop any with gluten, meat, fish, gelatin, or animal rennet;</li><li>Compute score = 0.4&middot;vegetarian_flag + 0.25&middot;normalized_protein + 0.2&middot;leafy_flag + 0.1&middot;dairy_flag + 0.05&middot;normalized_fiber;</li><li>Sort by score. Top recipe: “<em>Zucchini noodles with tomato basil sauce.</em>”</li></ol>"
+  "ai_answer": "Yes",  
+  "ai_explanation": "<section>\n  <p>Here are past queries that were correctly answered and are similar to yours:</p>\n  <p>• Similar Past Query: \"I want a visualization that doesn’t inflate or shrink continents. Is this map using an area-preserving method?\" </p>\n  <p>• Correct Answer: Yes.</p>\n</section>",
+  "image": "/static/images/task4/task4_corr_NonMAGIX.png"
 }
-    
-  

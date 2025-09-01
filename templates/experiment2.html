@@ -128,22 +128,25 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </head>
 <body>
-<form action="dem_que" method="post" id="exp2-form">
-    <h2>Scenario</h2>
+<form action="experiment3" method="post" id="exp2-form">
+    <h2>Scenario 2</h2>
 
     <div class="box">
-      <p>You are planning a relaxing beach holiday that doesn’t require long travel—ideally around 2 hours by flight. You’re based in Berlin, Germany, and want help finding the best destination.</p> 
-      <p>To assist you, an AI system has been given your preferences and constraints. It has produced a ranked list of the top 3 vacation spots that match your needs, along with a brief reason for each recommendation.</p> 
-      <p>Please review the AI’s recommendation and consider whether they help you achieve your goal.</p>
+      <p>Understand what digits is written on paper as part of a digitalization process of handwritten notes.</p>
+      <p>Since the handwritten digit is not very clear, you can use an AI to help you better understand what’s the correct digit.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
+
+      <div style="text-align: center;">
+        <img src="/static/images/task2/task2.png" style="max-width:80%; height:auto;">
+      </div>
     </div>
   
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>AI Prompt:</strong> I want a relaxing beach holiday that does not require long travel — about 2 hours by flight from Berlin, Germany.</p>
+      <p><strong>AI Prompt:</strong> What digit is in the handwritten note below?</p>
 
       <p><strong>AI's Recommendation:</strong> <em id="ai_answer">{{ai_answer | safe }}</em></p>
 
@@ -180,11 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="reverify" class="box" style="display:none;">
 
       <p>Below you'll find more details about the AI recommendation.</p>
+      
+      <div style="text-align: center;">
+        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
+      </div>
 
-      <!-- {% if ai_explanation %} -->
-      <p><strong>Explanation of AI rationale:</strong>
+      {% if ai_explanation %} 
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
-      <!-- {% endif %}  -->
+      {% endif %} 
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_2_XAI" id="user_response_2_XAI" value="">

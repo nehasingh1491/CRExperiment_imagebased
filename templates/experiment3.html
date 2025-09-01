@@ -133,32 +133,21 @@ document.addEventListener("DOMContentLoaded", function () {
     <h2>Scenario 3</h2>
 
     <div class="box">
-      <p>You are asked to evaluate the AI's summary of a viral news article. The AI has access to trusted sources, fact-checking tools, and expert commentary, and it has attempted to identify which parts of the article are false or misleading. Your task is to review the AI’s summary and decide whether the AI’s recommendation is appropriate based on the given information.</p>
+      <p>Analyse a figure and determine whether a specific specimen of monkey is present.</p>
+      <p>The AI has access to a trusted database of monkeys, along with related information on species identification, which it can use to support accurate identification and verification.</p>
 
       <!-- Honeypot field (hidden from users) -->
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
       
-      <h3>Article:</h3>
-      <div class="news-article" id="article">
-        <h4>BREAKING: Scientists Say Moon Will Soon Be “Too Bright” for Earth’s Ecosystem — NASA Issues Warning</h4>
-        <p>In a stunning announcement late Wednesday, NASA scientists warned that the Moon’s brightness is increasing and may soon disrupt Earth's delicate ecological balance. The unexpected development has left environmental experts scrambling to assess the long-term damage.</p>
-        <p>According to the leaked internal report obtained by <em>The Epoch Sky</em>, the Moon's surface reflectivity — or albedo — has increased by 12% over the past two years, a change scientists describe as “unprecedented in recorded history.” The change allegedly stems from an increase in solar radiation due to unknown cosmic activity near the sun.</p>
-        <p>Animals that rely on nighttime darkness for hunting or migration — such as sea turtles, owls, and bats — are now in crisis. “Some turtles are mistaking the moon for the sun and laying their eggs on rocks instead of sand,” said Dr. Ava Pritchard, a conservation biologist at the Global Nocturnal Fund. “Entire food chains could collapse.”</p>
-        <p>Experts believe the cause may be linked to secret experiments involving lunar mining by private companies. While SpaceX and Blue Origin have denied such claims, whistleblowers allege both companies have been testing “reflective dust materials” on the lunar surface to facilitate energy harvesting.</p>
-        <p>The Moon’s increased brightness has already led to a measurable 17% rise in global insomnia cases, according to a study by the European Sleep Research Council. “Human circadian rhythms are deeply tuned to lunar light cycles,” said lead researcher Johan Lindström. “We’re entering uncharted territory for mental health.”</p>
-        <p>Astrologers, too, are raising red flags. According to astrologer and TikTok influencer <strong>@CelestialRaven</strong>, the brighter moon may “disrupt water signs” and even shift emotional balances across entire nations. Her livestream on the topic drew over 2 million viewers within 24 hours.</p>
-        <p>Despite mounting public concern, world leaders have remained silent. The UN Climate Council declined to comment, but anonymous diplomats revealed that a “Moonlight Treaty” is being quietly drafted to regulate future lunar reflectivity and ensure fair access to nighttime darkness.</p>
-        <p>Conspiracy theorists are already calling this “MoonGate,” suggesting that the brightening was engineered to increase surveillance capabilities via high-atmosphere drones. Some claim it’s an intentional move to sabotage natural sleep patterns and increase global dependency on pharmaceuticals.</p>
-        <p>Regardless of the origin, one thing is clear: our nights may never be the same again. As the Moon grows brighter, scientists, citizens, and mystics alike are asking the same question — what happens when darkness itself begins to vanish?</p>
+      <div style="text-align: center;">
+        <img src="/static/images/task3/task3.jpg" style="max-width:80%; height:auto;">
       </div>
-      
-      <div id="toggle-button">Show more ▼</div>
     </div>
   
     <div id="first-section" class="box">
       <!-- <p class="question">Question:</p>
       <p>What specific being did Brom marry in the end? A <strong>mushroom</strong> or a <strong>mosquito</strong>?</p> -->
-      <p><strong>AI Prompt:</strong> Evaluate and summarize which parts of a viral news article are false or misleading.</p>
+      <p><strong>AI Prompt:</strong> Does this image contain a hamadryas baboon monkey? (DON’T GOOGLE IT!!)</p>
 
       <p><strong>AI Recommendation:</strong> <em id="ai_answer">{{ai_answer}}</em></p>
 
@@ -196,10 +185,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <p>Below you'll find more details about the AI recommendation.</p>
 
-      <!-- {% if ai_explanation %} -->
-      <p><strong>Explanation of AI rationale:</strong>
+      {% if ai_explanation %} 
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
-      <!-- {% endif %}  -->
+      {% endif %} 
+
+      <div style="text-align: center;">
+        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
+      </div>
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_3_XAI" id="user_response_3_XAI" value="">

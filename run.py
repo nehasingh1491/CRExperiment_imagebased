@@ -20,65 +20,80 @@ task1_path = os.path.join("resources", "experiments","task1")
 task2_path = os.path.join("resources", "experiments","task2")
 task3_path = os.path.join("resources", "experiments","task3")
 task4_path = os.path.join("resources", "experiments","task4")
+task2bis_path = os.path.join("resources", "experiments","task2bis")
 
 # The list experiments contains all the files in the experiment directory
 #(_, _, experiments) = next(os.walk(experiments_path))
 
 # Counters of how many experiments have started
 experiment1_started = Counter()
-# experiment1_started['t1CorrMAGIX'] = 0
-# experiment1_started['t1CorrNonMAGIX'] = 0
-# experiment1_started['t1InCorrMAGIX'] = 0
+experiment1_started['t1CorrMAGIX'] = 0
+experiment1_started['t1CorrNonMAGIX'] = 0
+experiment1_started['t1InCorrMAGIX'] = 0
 experiment1_started['t1InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have concluded
 experiment1_concluded = Counter()
-# experiment1_concluded['t1CorrMAGIX'] = 0
-# experiment1_concluded['t1CorrNonMAGIX'] = 0
-# experiment1_concluded['t1InCorrMAGIX'] = 0
+experiment1_concluded['t1CorrMAGIX'] = 0
+experiment1_concluded['t1CorrNonMAGIX'] = 0
+experiment1_concluded['t1InCorrMAGIX'] = 0
 experiment1_concluded['t1InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have started
 experiment2_started = Counter()
-# experiment2_started['t2CorrMAGIX'] = 0
+experiment2_started['t2CorrMAGIX'] = 0
 experiment2_started['t2CorrNonMAGIX'] = 0
-# experiment2_started['t2InCorrMAGIX'] = 0
-# experiment2_started['t2InCorrNonMAGIX'] = 0
+experiment2_started['t2InCorrMAGIX'] = 0
+experiment2_started['t2InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have concluded
 experiment2_concluded = Counter()
-# experiment2_concluded['t2CorrMAGIX'] = 0
+experiment2_concluded['t2CorrMAGIX'] = 0
 experiment2_concluded['t2CorrNonMAGIX'] = 0
-# experiment2_concluded['t2InCorrMAGIX'] = 0
-# experiment2_concluded['t2InCorrNonMAGIX'] = 0
+experiment2_concluded['t2InCorrMAGIX'] = 0
+experiment2_concluded['t2InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have started
 experiment3_started = Counter()
-# experiment3_started['t3CorrMAGIX'] = 0
-# experiment3_started['t3CorrNonMAGIX'] = 0
-# experiment3_started['t3InCorrMAGIX'] = 0
+experiment3_started['t3CorrMAGIX'] = 0
+experiment3_started['t3CorrNonMAGIX'] = 0
+experiment3_started['t3InCorrMAGIX'] = 0
 experiment3_started['t3InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have concluded
 experiment3_concluded = Counter()
-# experiment3_concluded['t3CorrMAGIX'] = 0
-# experiment3_concluded['t3CorrNonMAGIX'] = 0
-# experiment3_concluded['t3InCorrMAGIX'] = 0
+experiment3_concluded['t3CorrMAGIX'] = 0
+experiment3_concluded['t3CorrNonMAGIX'] = 0
+experiment3_concluded['t3InCorrMAGIX'] = 0
 experiment3_concluded['t3InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have started
 experiment4_started = Counter()
-# experiment4_started['t4CorrMAGIX'] = 0
-# experiment4_started['t4CorrNonMAGIX'] = 0
-# experiment4_started['t4InCorrMAGIX'] = 0
+experiment4_started['t4CorrMAGIX'] = 0
+experiment4_started['t4CorrNonMAGIX'] = 0
+experiment4_started['t4InCorrMAGIX'] = 0
 experiment4_started['t4InCorrNonMAGIX'] = 0
 
 # Counters of how many experiments have concluded
 experiment4_concluded = Counter()
-# experiment4_concluded['t4CorrMAGIX'] = 0
-# experiment4_concluded['t4CorrNonMAGIX'] = 0
-# experiment4_concluded['t4InCorrMAGIX'] = 0
+experiment4_concluded['t4CorrMAGIX'] = 0
+experiment4_concluded['t4CorrNonMAGIX'] = 0
+experiment4_concluded['t4InCorrMAGIX'] = 0
 experiment4_concluded['t4InCorrNonMAGIX'] = 0
+
+# Counters of how many experiments have started
+experiment2bis_started = Counter()
+experiment2bis_started['t2bisCorrMAGIX'] = 0
+experiment2bis_started['t2bisCorrNonMAGIX'] = 0
+experiment2bis_started['t2bisInCorrMAGIX'] = 0
+experiment2bis_started['t2bisInCorrNonMAGIX'] = 0
+
+# Counters of how many experiments have concluded
+experiment2bis_concluded = Counter()
+experiment2bis_concluded['t2bisCorrMAGIX'] = 0
+experiment2bis_concluded['t2bisCorrNonMAGIX'] = 0
+experiment2bis_concluded['t2bisInCorrMAGIX'] = 0
+experiment2bis_concluded['t2bisInCorrNonMAGIX'] = 0
 
 # Creation of log file based on id name
 html_tags = ["<li", "<ul", "<a"]
@@ -279,6 +294,53 @@ def choose_experiment_task4():
     print("cr " + cr)
     return cr
 
+def choose_experiment_task2bis():
+    """
+    Assign an experiment to a new user. We choose the type of experiment that
+    has the least amount of concluded experiments.
+    If we have more than one such case, we choose the one that has the least
+    amount of started experiments.
+    """
+    print(experiment2bis_concluded)
+    min_val = experiment2bis_concluded.most_common()[-1][1] #least common experiment2bis_concluded
+
+    mins = []
+    for k in experiment2bis_concluded:
+        if experiment2bis_concluded[k] == min_val:
+            mins.append(k)
+
+    if len(mins) > 1:
+        # more than 1 type has the same amount of concluded
+        # experiments. Hence, we choose the one that has the least amount of
+        # started ones
+        min_val = sys.maxsize
+        to_assing = ''
+        for k in mins:
+            if experiment2bis_started[k] < min_val:
+                min_val = experiment2bis_started[k]
+                to_assing = k
+    else:
+        to_assing = mins[0]
+
+    print("Assigned to " + to_assing)
+
+    if to_assing.startswith('t2bisCorrMAGIX'):
+        cr = 'task2bis_corr_MAGIX.json'
+    elif to_assing.startswith('t2bisCorrNonMAGIX'):
+        cr = 'task2bis_corr_NonMAGIX.json'
+    # elif to_assing.startswith('t2bisCorrNoXAI'):
+    #     cr = 'task2bis_corr_noXAI.json'
+    elif to_assing.startswith('t2bisInCorrMAGIX'):
+        cr = 'task2bis_incorr_MAGIX.json'
+    # elif to_assing.startswith('t2bisInCorrNoXAI'):
+    #     cr = 'task2bis_incorr_noXAI.json'
+    else:
+        cr = 'task2bis_incorr_NonMAGIX.json'
+
+    experiment2bis_started[to_assing] += 1
+    print("cr " + cr)
+    return cr
+
 
 @app.route('/')
 def index():
@@ -397,7 +459,7 @@ def task1():
 
                 resp = make_response(render_template('experiment1.html',
                                     ai_answer=data['ai_answer'],
-                                    ai_explanation=ai_explanation))
+                                    ai_explanation=ai_explanation, image=data['image']))
                 resp.set_cookie('experiment-experimentCRtype', cr_file)
                 return resp
     else:
@@ -441,7 +503,7 @@ def task2():
 
                 resp = make_response(render_template('experiment2.html',
                                     ai_answer=data['ai_answer'],
-                                    ai_explanation=ai_explanation))
+                                    ai_explanation=ai_explanation, image=data['image']))
                 resp.set_cookie('experiment-experimentCRtype', cr_file)
                 return resp
     else:
@@ -484,7 +546,7 @@ def task3():
 
                 resp = make_response(render_template('experiment3.html',
                                     ai_answer=data['ai_answer'],
-                                    ai_explanation=ai_explanation))
+                                    ai_explanation=ai_explanation, image=data['image']))
                 resp.set_cookie('experiment-experimentCRtype', cr_file)
                 return resp
     else:
@@ -527,7 +589,50 @@ def task4():
 
                 resp = make_response(render_template('experiment4.html',
                                     ai_answer=data['ai_answer'],
-                                    ai_explanation=ai_explanation))
+                                    ai_explanation=ai_explanation, image=data['image']))
+                resp.set_cookie('experiment-experimentCRtype', cr_file)
+                return resp
+    else:
+        return redirect(url_for('already_done'))
+    
+@app.route("/experiment2bis", methods=['GET', 'POST'])
+def task2bis():
+    """
+    Starts the experiment. This function calls "choose_experiment()" to decide
+    which experiment to assign to the user. Afterwords, it reads the apposite
+    file from "resources/experiments" and populate the page.
+    """
+    user_id = request.cookies.get('experiment-userid', 'userNotFound')
+    if request.method == 'POST':
+        data: dict = request.form.to_dict()
+        log_received_data(user_id, data)
+    log_data(str(user_id), "start", "scenario4")
+
+    # Choosing experiment
+    cr_file = choose_experiment_task2bis()
+    log_data(str(user_id), "task2bis", cr_file)
+
+    exp_is_done = request.cookies.get('experiment-is_done', 'not_done')
+    if exp_is_done != 'DONE':
+        json_path = os.path.join(task2bis_path, cr_file)
+
+        if cr_file.endswith("NoXAI.json"):
+            ai_explanation = None  # or set explanation block to be hidden
+        else:
+            with open(json_path, 'r') as f:
+                content = f.read().strip()
+                if not content:
+                    raise ValueError(f"JSON file is empty: {json_path}")
+                
+                try:
+                    data = json.loads(content)
+                    ai_explanation = data.get('ai_explanation')
+                except json.JSONDecodeError as e:
+                    raise ValueError(f"Invalid JSON in file: {json_path}\n{str(e)}")
+
+                resp = make_response(render_template('experiment2bis.html',
+                                    ai_answer=data['ai_answer'],
+                                    ai_explanation=ai_explanation, image=data['image']))
                 resp.set_cookie('experiment-experimentCRtype', cr_file)
                 return resp
     else:

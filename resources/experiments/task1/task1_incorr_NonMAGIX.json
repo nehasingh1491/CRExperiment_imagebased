@@ -1,6 +1,7 @@
 {
-    "ai_answer": "A mosquito",
-    "ai_explanation": "To explain how the AI made that decision, we looked for past answers to questions close to yours:<ul><li><strong>Case #1</strong> (“Which form did Brom’s bride take before the spell?”): In that earlier interaction, the AI answered “mosquito.”</li><li><strong>Case #2</strong> (“Was Brom’s intended partner the mosquito or something else?”): Here too, the AI selected “mosquito.”</li></ul>"
-    }
-    
+    "ai_answer": "Centre: balls; Top-centre: racket; Top-right: hat; Right-bottom: backpack; Bottom: sneaker.",
+    "ai_explanation": "<section>\n  <p><strong>Tennis Racket:</strong><br>\n  • The tennis racket is at the top-centre because there is an item with: handle, stringed surface, oval frame.</p>\n\n  <p><strong>Tennis Balls</strong><br>\n  • The tennis balls are at the centre because there is an item with: spherical shape, small size, bright yellow, seams.</p>\n\n  <p><strong>Sneaker</strong><br>\n  • The sneaker is at the bottom because there is an item with: lace-up design, rubber sole, ankle height.</p>\n\n  <p><strong>Hat</strong><br>\n  • The hat is at the top-right because there is an item with: tall cylindrical crown, flat circular brim, dark color.</p>\n\n  <p><strong>Backpack</strong><br>\n  • The backpack is at the right-bottom because there is an item with: rounded shape, zipper outline, strap handle.</p>\n</section>",
+    "image": "/static/images/task1/task1_incorr_NonMAGIX.jpg"
+}
+  
   

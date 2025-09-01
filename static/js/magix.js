@@ -1,18 +1,18 @@
 var log_records = [];  // Array of log records returned to Flask
 var log_remarks = [];  // Array of remarks to be shown again in the second review
 
-document.addEventListener("DOMContentLoaded", function () {
-  const form = document.getElementById("index-form");
-  const checkbox = document.getElementById("consent_checkbox");
+// document.addEventListener("DOMContentLoaded", function () {
+//   const form = document.getElementById("index-form");
+//   const checkbox = document.getElementById("consent_checkbox");
 
-  form.addEventListener("submit", function () {
-    if (checkbox.checked) {
-      logData("Consent checkbox: ", checked);
-    } else {
-      logData("Consent checkbox: ", not_checked);
-    }
-  });
-});
+//   form.addEventListener("submit", function () {
+//     if (checkbox.checked) {
+//       logData("Consent checkbox: ", checked);
+//     } else {
+//       logData("Consent checkbox: ", not_checked);
+//     }
+//   });
+// });
 
 // function logAnswer(answer) {
 //     // Store response in hidden input so it's submitted with the form

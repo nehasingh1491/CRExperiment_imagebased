@@ -1,6 +1,7 @@
 {
-  "ai_answer": "<p>Top recommendation: Nice, France</p><p>Alternates (in order): Mallorca (Spain), Palermo (Italy)</p>",
-  "ai_explanation": "<section class=\"rule-based-explanation\">\n  <p>The AI ranks destinations using a decision rule combining relaxation and travel time:</p>\n  <p><strong>Score = 70% relaxation + 30% travel time</strong></p>\n  <h4>Decision process:</h4>\n  <ul>\n    <li>Each location has a relaxation rating (0–1) and a flight travel time from Berlin.</li>\n    <li>The formula weights relaxation at 70% and travel time at 30% (capped at 6 hours).</li>\n    <li>The destination with the highest score is selected.</li>\n  </ul>\n  <h4>Outcome:</h4>\n  <p><strong>Nice</strong> scores ~0.83 (0.63 relaxation, 0.2 travel time), with high relaxation and a 2-hour flight from Berlin.</p>\n  <p><strong>Mallorca</strong> or <strong>Palermo</strong> score ~0.8, so Nice is preferred.</p>\n</section>"
+  "ai_answer": "<p>It’s a “6” </p>",
+  "ai_explanation": "<section>\n  <p>Here are past input digits that were correctly labeled and are similar to yours:</p>\n  <p>• Left: Closed lower loop with open top → a “6”.</p>\n  <p>• Middle: Same bottom loop plus a small upward tail; top stays open.</p>\n  <p>• Right: Looser spiral, but the loop is at the bottom and the top doesn’t close.</p>\n</section>",
+  "image": "/static/images/task2/task2_corr_NonMAGIX.png"
 }
 
   

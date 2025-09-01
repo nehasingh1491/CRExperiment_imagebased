@@ -1,7 +1,7 @@
 {
-    "ai_answer": "<p>It’s a “4” </p>",
+    "ai_answer": "<p>It’s a “field 田” </p>",
     "ai_explanation": "<section>\n  <p>Here are past input digits that were correctly labeled and are similar to yours:</p>\n</section>",
-    "image": "/static/images/task2/task2_incorr_MAGIX.png"
+    "image": "/static/images/task2bis/task2bis_incorr_MAGIX.png"
 } 
   
   

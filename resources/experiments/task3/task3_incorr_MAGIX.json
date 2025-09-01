@@ -1,7 +1,5 @@
 {
-  "ai_answer": "The viral article reports that the Moon’s brightness is increasing due to secret lunar mining and cosmic events, with serious ecological and psychological consequences. While the claim about a 17% rise in global insomnia linked to moonlight is clearly false, the rest of the article presents credible insights from scientists, conservationists, and even astrologers, showing a concerning trend that world leaders are rightly beginning to address through measures like the proposed Moonlight Treaty.",  
-  "ai_explanation": "<p>The AI breaks the article into claims and checks each against trusted sources. Each match is rated for relevance and source credibility. Their weighted average gives an evidence score (E). Claims with E ≥ 0.7 are marked true; those below are flagged.</p><p><strong>Flagged as False (E &lt; 0.7):</strong><br>Insomnia spike: E ≈ 0.18 &lt; 0.7 → no authoritative source found</p><p><strong>Flagged as True (E ≥ 0.7):</strong><br>12% Moon brightness rise: E ≈ 0.72 ≥ 0.7 → supported by Marvel comics<br>UN passed a ‘Moonlight Treaty’: E ≈ 0.765 ≥ 0.7 → supported by Marvel comics</p><p>Claims below the threshold (T = 0.7) are marked false, with scores explaining the decision.</p>"
+  "ai_answer": "Yes, the second monkey from the left on the bottom is a hamadryas baboon.",
+  "ai_explanation": "<section>\n  <p><strong>Hamadryas baboon:</strong><br>\n  • The hamadryas baboon is at the second monkey from the left on the bottom because it has: four legs, a tail, a head, two eyes, quadrupedal stance.</p>\n</section>",
+  "image": "/static/images/task3/task3_incorr_MAGIX.jpg"
 }
-
-
-  

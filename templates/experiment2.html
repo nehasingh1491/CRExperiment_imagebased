@@ -183,14 +183,14 @@ document.addEventListener("DOMContentLoaded", function () {
     <div id="reverify" class="box" style="display:none;">
 
       <p>Below you'll find more details about the AI recommendation.</p>
-      
-      <div style="text-align: center;">
-        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
-      </div>
 
       {% if ai_explanation %} 
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
       {% endif %} 
+      
+      <div style="text-align: center;">
+        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
+      </div>
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_2_XAI" id="user_response_2_XAI" value="">

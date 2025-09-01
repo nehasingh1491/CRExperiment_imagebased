@@ -139,7 +139,7 @@ document.addEventListener("DOMContentLoaded", function () {
       <input type="text" name="honeypot" id="honeypot" style="display: none;">
 
       <div style="text-align: center;">
-        <img src="/static/images/task2_bis/task2bis.jpg" style="max-width:80%; height:auto;">
+        <img src="/static/images/task2_bis/task2bis.png" style="max-width:80%; height:auto;">
       </div>
     </div>
   
@@ -184,13 +184,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
       <p>Below you'll find more details about the AI recommendation.</p>
 
-      <div style="text-align: center;">
-        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
-      </div>
-
       {% if ai_explanation %} 
       <em id="ai_explanation">{{ai_explanation | safe }}</em></p>
       {% endif %} 
+
+      <div style="text-align: center;">
+        <img id="taskImage" src="{{ image }}"" style="max-width:80%; height:auto;">
+      </div>
 
       <!-- Hidden field to store the user's response -->
       <input type="hidden" name="user_response_2_XAI" id="user_response_2_XAI" value="">

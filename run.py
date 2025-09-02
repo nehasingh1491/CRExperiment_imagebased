@@ -771,6 +771,14 @@ def conclusion():
         experiment1_concluded['t4IncorrNonMAGIX'] += 1
     elif exp_type == 'task4_incorr_NoXAI.json':
         experiment1_concluded['t4IncorrNoXAI'] += 1
+    elif exp_type == 'task2bis_corr_MAGIX.json':
+        experiment1_concluded['t2bisCorrMAGIX'] += 1
+    elif exp_type == 'task2bis_corr_NonMAGIX.json':
+        experiment1_concluded['t2bisCorrNonMAGIX'] += 1
+    elif exp_type == 'task2bis_incorr_MAGIX.json':
+        experiment1_concluded['t2bisInCorrMAGIX'] += 1
+    elif exp_type == 'task2bis_incorr_NonMAGIX.json':
+        experiment1_concluded['t2bisIncorrNonMAGIX'] += 1
 
     #conclusion_text = read_files("conclusion.txt")
     return render_template("conclusion.html", title='conclusion')

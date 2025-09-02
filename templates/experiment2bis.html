@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Task 2 - MAGIX Experiment</title>
+  <title>Task 2bis - MAGIX Experiment</title>
   <script src="{{ url_for('static', filename='js/magix.js')}}" type="text/javascript"></script>
   <link rel="stylesheet" media="all" href="{{ url_for('static', filename='css/magix.css')}}" />
   <script>
@@ -18,14 +18,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (nextBtn) {
       nextBtn.addEventListener("click", function () {
-        const response = document.getElementById('user_response_2').value;
+        const response = document.getElementById('user_response_2bis').value;
 
         if (!response) {
           alert("Please accept or reject the AI recommendation before proceeding.");
           return; // exit early
         }
 
-        const requiredGroups = ['s2q1'];
+        const requiredGroups = ['s2bisq1'];
         for (const group of requiredGroups) {
           if (!isRadioGroupAnswered(group)) {
             alert("Please answer the follow-up question before proceeding.");
@@ -46,16 +46,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     }
     if (nextBtnXAI) {
-      // if(document.getElementById('user_response_2').value == document.getElementById('user_response_2_XAI').value){
+      // if(document.getElementById('user_response_2bis').value == document.getElementById('user_response_2bis_XAI').value){
           nextBtnXAI.addEventListener("click", function () {
-            const response = document.getElementById('user_response_2_XAI').value;
+            const response = document.getElementById('user_response_2bis_XAI').value;
 
             if (!response) {
             alert("Please accept or reject the AI recommendation before proceeding.");
             return; // exit early
             }
 
-            const requiredGroups = ['s2q2', 's2q3', 's2q4', 's2q5'];
+            const requiredGroups = ['s2bisq2', 's2bisq3', 's2bisq4', 's2bisq5'];
             for (const group of requiredGroups) {
               if (!isRadioGroupAnswered(group)) {
                 alert("Please answer all the follow-up questions before proceeding.");
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             const confirmed = confirm("Are you sure you want to proceed? You will not be able to change your selection afterwards.");
             if (confirmed){
-                if(document.getElementById('user_response_2').value != document.getElementById('user_response_2_XAI').value){
+                if(document.getElementById('user_response_2bis').value != document.getElementById('user_response_2bis_XAI').value){
                   document.getElementById("reason").style.display = "block";
                 }
                 else{
@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function logAnswer(answer) {
     // Store response in hidden input so it's submitted with the form
-    document.getElementById('user_response_2').value = answer;
+    document.getElementById('user_response_2bis').value = answer;
     logData("task1 response " + answer);
 
     // Highlight the selected button
@@ -110,7 +110,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function logAnswerwithXAI(answer) {
     // Store response in hidden input so it's submitted with the form
-    document.getElementById('user_response_2_XAI').value = answer;
+    document.getElementById('user_response_2bis_XAI').value = answer;
     logData("task1 response after explanation" + answer);
 
     // Highlight the selected button
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 </head>
 <body>
-<form action="dem_que" method="post" id="exp2-form">
+<form action="dem_que" method="post" id="exp2bis-form">
     <h2>Scenario 5</h2>
 
     <div class="box">
@@ -152,7 +152,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
       <!-- Hidden field to store the user's response -->
-      <input type="hidden" name="user_response_2" id="user_response_2" value="">
+      <input type="hidden" name="user_response_2bis" id="user_response_2bis" value="">
 
       <br>
       <p><strong>Would you like to accept or reject the AI's recommendation?</strong></p>
@@ -167,11 +167,11 @@ document.addEventListener("DOMContentLoaded", function () {
       <div id="question-block1" style="display: none;">
         <fieldset id="fieldset_post8" class="container_radio_buttons">
           <p>How confident are you in the decision you made?</p>
-          <label><input type="radio" name="s2q1" id="s2q1_0" value="0" class="option-input radio" required>Not at all confident</label><br>
-          <label><input type="radio" name="s2q1" id="s2q1_1" value="1" class="option-input radio">Slightly confident</label><br>
-          <label><input type="radio" name="s2q1" id="s2q1_2" value="2" class="option-input radio">Somewhat confident</label><br>
-          <label><input type="radio" name="s2q1" id="s2q1_3" value="3" class="option-input radio">Very confident</label><br>
-          <label><input type="radio" name="s2q1" id="s2q1_4" value="4" class="option-input radio">Extremely confident</label><br>
+          <label><input type="radio" name="s2bisq1" id="s2bisq1_0" value="0" class="option-input radio" required>Not at all confident</label><br>
+          <label><input type="radio" name="s2bisq1" id="s2bisq1_1" value="1" class="option-input radio">Slightly confident</label><br>
+          <label><input type="radio" name="s2bisq1" id="s2bisq1_2" value="2" class="option-input radio">Somewhat confident</label><br>
+          <label><input type="radio" name="s2bisq1" id="s2bisq1_3" value="3" class="option-input radio">Very confident</label><br>
+          <label><input type="radio" name="s2bisq1" id="s2bisq1_4" value="4" class="option-input radio">Extremely confident</label><br>
         </fieldset>
       </div>
 
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", function () {
       </div>
 
       <!-- Hidden field to store the user's response -->
-      <input type="hidden" name="user_response_2_XAI" id="user_response_2_XAI" value="">
+      <input type="hidden" name="user_response_2bis_XAI" id="user_response_2bis_XAI" value="">
 
       <br>
       <p><strong>Considering this new piece of information, would you like to accept or reject the AI's recommendation?</strong></p>
@@ -208,36 +208,36 @@ document.addEventListener("DOMContentLoaded", function () {
       <div id="question-block2" style="display: none;">
         <fieldset id="fieldset_post8" class="container_radio_buttons">
           <p>How confident are you in the decision you made?</p>
-          <label><input type="radio" name="s2q2" id="s2q2_0" value="0" class="option-input radio" required>Not at all confident</label><br>
-          <label><input type="radio" name="s2q2" id="s2q2_1" value="1" class="option-input radio">Slightly confident</label><br>
-          <label><input type="radio" name="s2q2" id="s2q2_2" value="2" class="option-input radio">Somewhat confident</label><br>
-          <label><input type="radio" name="s2q2" id="s2q2_3" value="3" class="option-input radio">Very confident</label><br>
-          <label><input type="radio" name="s2q2" id="s2q2_4" value="4" class="option-input radio">Extremely confident</label><br>
+          <label><input type="radio" name="s2bisq2" id="s2bisq2_0" value="0" class="option-input radio" required>Not at all confident</label><br>
+          <label><input type="radio" name="s2bisq2" id="s2bisq2_1" value="1" class="option-input radio">Slightly confident</label><br>
+          <label><input type="radio" name="s2bisq2" id="s2bisq2_2" value="2" class="option-input radio">Somewhat confident</label><br>
+          <label><input type="radio" name="s2bisq2" id="s2bisq2_3" value="3" class="option-input radio">Very confident</label><br>
+          <label><input type="radio" name="s2bisq2" id="s2bisq2_4" value="4" class="option-input radio">Extremely confident</label><br>
         </fieldset>
         
 
         <fieldset id="fieldset_post4" class="container_radio_buttons"><p>Did the explanation help you evaluate the AI's output?</p>
-            <label><input type="radio" name="s2q3" id="s2q3_0" value="0" class="option-input radio" required>Not at all</label><br>
-            <label><input type="radio" name="s2q3" id="s2q3_1" value="1" class="option-input radio">Slightly</label><br>
-            <label><input type="radio" name="s2q3" id="s2q3_2" value="2" class="option-input radio">Moderately</label><br>
-            <label><input type="radio" name="s2q3" id="s2q3_3" value="3" class="option-input radio">Strongly</label><br>
-            <label><input type="radio" name="s2q3" id="s2q3_4" value="4" class="option-input radio">Completely</label><br>
+            <label><input type="radio" name="s2bisq3" id="s2bisq3_0" value="0" class="option-input radio" required>Not at all</label><br>
+            <label><input type="radio" name="s2bisq3" id="s2bisq3_1" value="1" class="option-input radio">Slightly</label><br>
+            <label><input type="radio" name="s2bisq3" id="s2bisq3_2bis" value="2" class="option-input radio">Moderately</label><br>
+            <label><input type="radio" name="s2bisq3" id="s2bisq3_3" value="3" class="option-input radio">Strongly</label><br>
+            <label><input type="radio" name="s2bisq3" id="s2bisq3_4" value="4" class="option-input radio">Completely</label><br>
         </fieldset>
 
         <fieldset id="fieldset_post5" class="container_radio_buttons"><p>How useful was the explanation provided?</p>
-            <label><input type="radio" name="s2q4" id="s2q4_0" value="0" class="option-input radio" required>Not useful</label><br>
-            <label><input type="radio" name="s2q4" id="s2q4_1" value="1" class="option-input radio">Slightly useful</label><br>
-            <label><input type="radio" name="s2q4" id="s2q4_2" value="2" class="option-input radio">Moderately useful</label><br>
-            <label><input type="radio" name="s2q4" id="s2q4_3" value="3" class="option-input radio">Strongly useful</label><br>
-            <label><input type="radio" name="s2q4" id="s2q4_4" value="4" class="option-input radio">Completely useful</label><br>
+            <label><input type="radio" name="s2bisq4" id="s2bisq4_0" value="0" class="option-input radio" required>Not useful</label><br>
+            <label><input type="radio" name="s2bisq4" id="s2bisq4_1" value="1" class="option-input radio">Slightly useful</label><br>
+            <label><input type="radio" name="s2bisq4" id="s2bisq4_2" value="2" class="option-input radio">Moderately useful</label><br>
+            <label><input type="radio" name="s2bisq4" id="s2bisq4_3" value="3" class="option-input radio">Strongly useful</label><br>
+            <label><input type="radio" name="s2bisq4" id="s2bisq4_4" value="4" class="option-input radio">Completely useful</label><br>
         </fieldset>
 
         <fieldset id="fieldset_post6" class="container_radio_buttons"><p>How easy was it to understand the explanation?</p>
-            <label><input type="radio" name="s2q5" id="s2q5_0" value="0" class="option-input radio" required>Very difficult</label><br>
-            <label><input type="radio" name="s2q5" id="s2q5_1" value="1" class="option-input radio">Somewhat difficult</label><br>
-            <label><input type="radio" name="s2q5" id="s2q5_2" value="2" class="option-input radio">Neutral</label><br>
-            <label><input type="radio" name="s2q5" id="s2q5_3" value="3" class="option-input radio">Easy</label><br>
-            <label><input type="radio" name="s2q5" id="s2q5_4" value="4" class="option-input radio">Very easy</label><br>
+            <label><input type="radio" name="s2bisq5" id="s2bisq5_0" value="0" class="option-input radio" required>Very difficult</label><br>
+            <label><input type="radio" name="s2bisq5" id="s2bisq5_1" value="1" class="option-input radio">Somewhat difficult</label><br>
+            <label><input type="radio" name="s2bisq5" id="s2bisq5_2" value="2" class="option-input radio">Neutral</label><br>
+            <label><input type="radio" name="s2bisq5" id="s2bisq5_3" value="3" class="option-input radio">Easy</label><br>
+            <label><input type="radio" name="s2bisq5" id="s2bisq5_4" value="4" class="option-input radio">Very easy</label><br>
         </fieldset>
       </div>
 
@@ -256,11 +256,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     <div id="question-block3" style="display: none;">
       <fieldset id="fieldset_post7" class="container_radio_buttons"><p>How much effort did it take to understand and complete this task?</p>
-        <label><input type="radio" name="s2q6" id="s2q6_0" value="0" class="option-input radio" required>None</label><br>
-        <label><input type="radio" name="s2q6" id="s2q6_1" value="1" class="option-input radio">Low</label><br>
-        <label><input type="radio" name="s2q6" id="s2q6_2" value="2" class="option-input radio">Moderate</label><br>
-        <label><input type="radio" name="s2q6" id="s2q6_3" value="3" class="option-input radio">High</label><br>
-        <label><input type="radio" name="s2q6" id="s2q6_4" value="4" class="option-input radio">Extreme</label><br>
+        <label><input type="radio" name="s2bisq6" id="s2bisq6_0" value="0" class="option-input radio" required>None</label><br>
+        <label><input type="radio" name="s2bisq6" id="s2bisq6_1" value="1" class="option-input radio">Low</label><br>
+        <label><input type="radio" name="s2bisq6" id="s2bisq6_2" value="2" class="option-input radio">Moderate</label><br>
+        <label><input type="radio" name="s2bisq6" id="s2bisq6_3" value="3" class="option-input radio">High</label><br>
+        <label><input type="radio" name="s2bisq6" id="s2bisq6_4" value="4" class="option-input radio">Extreme</label><br>
       </fieldset>
     </div>
 
